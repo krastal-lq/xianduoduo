@@ -205,7 +205,7 @@ Page({
 			app.fadeInOut(this,'fadeAni',1)
 		}else{
 			wx.setNavigationBarColor({
-				frontColor: '#ffffff',
+				frontColor: '#000000',
 				backgroundColor: '#ffffff'
 			})
 			app.fadeInOut(this,'fadeAni',0)
