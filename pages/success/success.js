@@ -78,7 +78,7 @@ Page({
       cancelText: '忍痛放弃',
       cancelColor: '#999999',
       confirmText: '我在想想',
-      confirmColor: '#b5272d',
+      confirmColor: '#fbbd08',
       success: function (res) {
         if (res.cancel) {
           wx.redirectTo({

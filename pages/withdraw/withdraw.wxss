@@ -90,7 +90,7 @@ form{
     box-sizing: border-box;
 }
 .save-btn{
-    background-color: #b5272d;
+    background-color: #fbbd08;
     color:#fff;
     font-size: 30rpx;
 }

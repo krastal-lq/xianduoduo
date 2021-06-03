@@ -12,7 +12,7 @@ page {
   z-index: 9999999;
   left: 20rpx;
   font-size: 30rpx;
-  color: #b5272d;
+  color: #fbbd08;
 }
 .iphoneCon .top-edit-btn{
   top:108rpx;
@@ -121,7 +121,7 @@ page {
 
 .goods-info .text-box .goods-price {
   font-size: 26rpx;
-  color: #b5272d;
+  color: #fbbd08;
 }
 
 .goods-info .text-box .buy-num {
@@ -191,7 +191,7 @@ page {
   width: 120rpx;
   line-height: 220rpx;
   text-align: center;
-  background: #b5272d;
+  background: #fbbd08;
   font-size: 24rpx;
   color: #fff;
 }
@@ -214,7 +214,7 @@ page {
   width: 240rpx;
   text-align: center;
   line-height: 100rpx;
-  background-color: #b5272d;
+  background-color: #fbbd08;
   font-size: 32rpx;
   color: #fff;
 }
@@ -246,7 +246,7 @@ page {
 }
 
 .jiesuan-box .total {
-  color: #b5272d;
+  color: #fbbd08;
 }
 
 .tips {

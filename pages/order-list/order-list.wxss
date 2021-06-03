@@ -29,8 +29,8 @@
 }
 
 .status-box .status-label.active {
-  color: #b5272d;
-  border-bottom: 6rpx solid #b5272d;
+  color: #fbbd08;
+  border-bottom: 6rpx solid #fbbd08;
 }
 
 .status-box .status-label .red-dot {
@@ -39,7 +39,7 @@
   position: absolute;
   left: 125rpx;
   top: 20rpx;
-  background-color: #b5272d;
+  background-color: #fbbd08;
   border-radius: 50%;
 }
 
@@ -87,7 +87,7 @@
 
 .order-list .a-order .order-date .red {
   font-size: 26rpx;
-  color: #b5272d;
+  color: #fbbd08;
 }
 
 .a-order  .goods-info, .goods-img-container {
@@ -156,7 +156,7 @@
 }
 .order-list .a-order .price-box .total-price {
   font-size: 26rpx;
-  color: #b5272d;
+  color: #fbbd08;
 }
 
 .a-order .price-box .btn {
@@ -178,16 +178,16 @@
 }
 
 .a-order .price-box .topay-btn {
-  border: 1px solid #b5272d;
-  color: #b5272d;
+  border: 1px solid #fbbd08;
+  color: #fbbd08;
 }
 .confirm-btn {
   background: #fff;
-  border: 1px solid #b5272d;
+  border: 1px solid #fbbd08;
 	float: right;
 }
 .toeva-btn{
 	background: #fff;
-	border: 1px solid #b5272d;
+	border: 1px solid #fbbd08;
 	float: right;
 }

@@ -55,7 +55,7 @@
 }
 
 .goods-price {
-  color: #b5272d;
+  color: #fbbd08;
   font-size: 28rpx;
   text-align: left;
   width: 100%;

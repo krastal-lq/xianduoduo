@@ -47,7 +47,7 @@
   float: right;
   font-size: 30rpx;
   line-height: 60rpx;
-  color: #b5272d;
+  color: #fbbd08;
   font-size: 30rpx;
   width: 100rpx;
   text-align: center;
@@ -120,7 +120,7 @@
 }
 
 .goods-price {
-  color: #b5272d;
+  color: #fbbd08;
   font-size: 28rpx;
   text-align: left;
   width: 100%;

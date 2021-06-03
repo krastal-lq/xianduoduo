@@ -2,11 +2,11 @@
 .topbar{
   position: relative;
   z-index: 1;
-  background-color: #fbbd08;
+  background-color: #ffffff;
   padding: 10px;
 }
 .input{
-  background-color: #fff;
+  background-color: #eee;
   padding: 4px 10px;
   border-radius: 30px;
   display: flex;
