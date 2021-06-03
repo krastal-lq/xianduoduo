@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "secKill":"./secKill/secKill",
+    "recommand":"./recommand/recommand"
+  }
+}

@@ -1,0 +1,16 @@
+<!--pages/home/home.wxml-->
+<view id="home">
+  <topbar></topbar>
+  <view class="top-bg"></view>
+  <!-- <view class="tabs">
+    <scroll-view scroll-x>
+      <view wx:for="{{tabs.items}}" wx:key="item" data-index="{{index}}"
+        bindtap="handleTabClick" class="tab-item {{index==tabs.active?'tab-active':''}}">
+          {{item}}
+      </view>
+    </scroll-view>
+  </view> -->
+  <view class="content">
+    <home />
+  </view>
+</view>

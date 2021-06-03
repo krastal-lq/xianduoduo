@@ -1,0 +1,36 @@
+/* pages/home/home.wxss */
+#home{
+  position: relative;
+  background-color: #eeeeee;
+  margin-bottom: 50px;
+}
+#home .top-bg{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  height: 180px;
+  width: 100%;
+  background-color: #fbbd08;
+}
+#home .tabs{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+#home .tabs scroll-view {
+  white-space: nowrap;
+}
+#home .tabs scroll-view .tab-item{
+  display: inline-block;
+  padding: 0 6px;
+  color: #fff;
+  transition: all .3s;
+}
+#home .tabs scroll-view .tab-active{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+#home .home{
+  position: relative;
+}

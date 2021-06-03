@@ -1,0 +1,69 @@
+/* pages/home/pages/home/secKill/secKill.wxss */
+.sec-kill{
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.sec-kill .top{
+  display: flex;
+  align-items: center;
+}
+.sec-kill .top .count-down_wrap{
+  flex: 1;
+  height: 1rem;
+  margin:0 5px;
+}
+.sec-kill .top .count-down_wrap .count-down{
+  display: flex;
+  border-radius: 30px;
+  border: 1px solid red;
+  width: fit-content;
+}
+.sec-kill .top .count-down .h{
+  border-radius: 30px;
+  background-color: red;
+  padding:0 5px;
+  color: #fff;
+  font-size: 0.7rem;
+}
+.sec-kill .top .count-down .m{
+  font-size: 0.7rem;
+  padding:0 5px;
+  font-weight: bold;
+  color: red;
+}
+.sec-kill .top .txt{
+  font-size: 0.7rem;
+  color: red;
+}
+
+.sec-kill .items{
+  white-space: nowrap;
+  margin-top: 10px;
+}
+.sec-kill .items .item_wrap{
+  position: relative;
+  width: 25%;
+  height: fit-content;
+  display: inline-block; 
+}
+.sec-kill .items .item_wrap .img{
+  width: 100%;
+}
+.sec-kill .items .item_wrap .now{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.sec-kill .items .item_wrap .original{
+  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  text-decoration:line-through solid rgba(0, 0, 0, 0.3);
+  font-size: 0.8rem;
+}

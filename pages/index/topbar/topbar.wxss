@@ -1,0 +1,16 @@
+/* pages/home/topbar/topbar.wxss */
+.topbar{
+  position: relative;
+  z-index: 1;
+  background-color: #fbbd08;
+  padding: 10px;
+}
+.input{
+  background-color: #fff;
+  padding: 4px 10px;
+  border-radius: 30px;
+  display: flex;
+}
+.input input{
+  flex: 1;
+}

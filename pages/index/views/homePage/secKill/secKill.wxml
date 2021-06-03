@@ -1,0 +1,24 @@
+<!--pages/home/pages/home/secKill/secKill.wxml-->
+<view class="sec-kill">
+  <view class="top">
+    限时秒杀
+    <view class="count-down_wrap">
+      <view class="count-down">
+        <view class="h">17点场</view>
+        <view class="m">00：57：36</view>
+      </view>
+      
+    </view>
+    <view class="more">
+      <text class="txt">更多秒杀</text>
+      <mp-icon icon='arrow' color='red' size='{{10}}' type='field'></mp-icon>
+    </view>
+  </view>
+  <scroll-view scroll-x class="items" show-scrollbar='{{false}}'>
+    <view class="item_wrap" wx:for="{{secKill}}" wx:key='index'>
+      <image src="{{item.img}}" mode="widthFix" class="img"></image>
+        <view class="now">￥{{item.now}}</view>
+        <view class="original">￥{{item.original}}</view>
+    </view>
+  </scroll-view>
+</view>

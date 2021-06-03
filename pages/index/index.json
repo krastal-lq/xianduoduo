@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+		"navigation": "/components/navigation/navigation",
+		"topbar":"./topbar/topbar",
+    "home":"./views/homePage/home"
+	},
+  "navigationBarTitleText": "鲜多多",
+  "navigationBarBackgroundColor": "#fbbd08",
+  "navigationBarTextStyle": "black"
+}

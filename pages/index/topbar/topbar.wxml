@@ -1,0 +1,8 @@
+<!--pages/home/topbar/topbar.wxml-->
+<view class="topbar">
+  <view class="input">
+    <mp-icon icon="search" color="black" size="{{25}}"></mp-icon>
+    <input type="text"/>
+    <mp-icon icon="camera" color="black" size="{{20}}"></mp-icon>
+  </view>
+</view>
