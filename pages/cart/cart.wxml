@@ -2,9 +2,6 @@
 <navigation id='Navigation' show-title='{{true}}' title="购物车"></navigation>
 <import src="../template-cart/template-cart.wxml" />
 <view class="container">
-  <!-- <view class="header-container">
-    <view class="header-name">购物车</view>
-  </view> -->
   <template is="{{goodsList.list.length > 0 ? 'cart-goods-list' : 'no-goods'}}" data="{{...goodsList}}"></template>
   <view class="sales-goods" wx:if="{{sales}}">
     <view class="sales-title">猜你喜欢</view>

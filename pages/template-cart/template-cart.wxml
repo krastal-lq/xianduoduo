@@ -26,9 +26,7 @@
             </view>
           </view>
         </view>
-        <view class="delete-btn" data-index="{{index}}" catchtap="delItem">
-          删除
-        </view>
+        <view class="delete-btn" data-index="{{index}}" catchtap="delItem">删除</view>
       </view>
     </view>
   </view>

@@ -259,7 +259,7 @@ swiper-item image {
 
 .goods-price {
   padding-left: 30rpx;
-  color: #fbbd08;
+  color: red;
   font-size: 40rpx;
   padding-top: 10rpx;
   display: inline-block;
@@ -673,8 +673,8 @@ swiper-item image {
 }
 
 .tab-header .active {
-  color: #b4282d;
-  border-bottom: 2rpx solid #b4282d;
+  color: #fbbd08;
+  border-bottom: 2rpx solid #fbbd08;
 }
 
 .tab-container {

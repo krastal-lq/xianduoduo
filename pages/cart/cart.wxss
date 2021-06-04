@@ -83,7 +83,7 @@ page {
 }
 
 .goods-price {
-  color: #fbbd08;
+  color: red;
   font-size: 28rpx;
   text-align: left;
   width: 100%;

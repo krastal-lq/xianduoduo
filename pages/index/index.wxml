@@ -1,9 +1,8 @@
 <!--index.wxml-->
-<navigation id='Navigation' show-title='{{true}}' title="鲜多多"></navigation>
+<navigation id='Navigation' show-search='{{true}}'></navigation>
 <view class="container">
 
 	<view id="home">
-		<topbar></topbar>
 		<view class="top-bg"></view>
 		<view class="content">
 			<home />

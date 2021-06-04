@@ -11,7 +11,7 @@ page {
   top: 70rpx;
   z-index: 9999999;
   left: 20rpx;
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: #fbbd08;
 }
 .iphoneCon .top-edit-btn{
@@ -121,7 +121,7 @@ page {
 
 .goods-info .text-box .goods-price {
   font-size: 26rpx;
-  color: #fbbd08;
+  color: red;
 }
 
 .goods-info .text-box .buy-num {
@@ -246,7 +246,7 @@ page {
 }
 
 .jiesuan-box .total {
-  color: #fbbd08;
+  color: red;
 }
 
 .tips {
