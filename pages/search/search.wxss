@@ -47,7 +47,7 @@
   float: right;
   font-size: 30rpx;
   line-height: 60rpx;
-  color: #fbbd08;
+  color: rgb(41, 41, 41);
   font-size: 30rpx;
   width: 100rpx;
   text-align: center;

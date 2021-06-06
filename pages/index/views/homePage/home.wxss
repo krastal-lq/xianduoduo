@@ -21,10 +21,9 @@
 
 .home .menus{
   position: relative;
-  padding: 10px 0;
 }
 .home .menus .menu{
-  width: calc(100% * 0.2);
+  width: calc(100% * 0.25);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,7 +38,15 @@
   background-color: #e0e0e0;
 }
 .home .menus .menu .img{
-  width: 100%;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.home .menus .menu .img:first-child{
+    background-color: #F8CEB4;
+}
+.home .menus .menu .img:last-child{
+  background-color:#BEE570;
 }
 .home .menus .menu .title{
   font-size: 0.7rem;

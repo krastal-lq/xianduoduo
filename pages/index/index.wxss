@@ -78,7 +78,7 @@ page{
 	position: relative;
 	width: 710rpx;
 	left: 20rpx;
-	margin-top: -50rpx;
+	margin-top: 20rpx;
 	background: linear-gradient(#fff,#f2f2f2);
 	border-top-left-radius: 15rpx;
 	border-top-right-radius: 15rpx;

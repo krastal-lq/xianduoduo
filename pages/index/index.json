@@ -1,8 +1,9 @@
 {
 	"usingComponents": {
 		"navigation": "/components/navigation/navigation",
-		"topbar":"./topbar/topbar",
-    "home":"./views/homePage/home"
+    "home":"./views/homePage/home",
+    "secKill":"./views/homePage/secKill/secKill"
+
 	},
   "navigationBarTitleText": "鲜多多",
   "navigationBarBackgroundColor": "#fbbd08",

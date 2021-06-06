@@ -52,35 +52,6 @@ Page({
 				}
 			}
 		})
-		//首页幻灯片
-		wx.request({
-			url: app.globalData.urls + '/banner/list',
-			data: {
-				type: 'home'
-			},
-			success: function(res) {
-				if (res.data.code == 0) {
-					that.setData({
-						banners: res.data.data
-					});
-				}
-			}
-		})
-		//4个功能展示位
-		wx.request({
-		  url: app.globalData.urls + '/banner/list',
-		  data: {
-		    key: 'mallName',
-		    type: 'sale'
-		  },
-		  success: function (res) {
-		    if (res.data.code == 0) {
-		      that.setData({
-		        sales: res.data.data
-		      });
-		    }
-		  }
-		})
 		//4个热销广告位
 		wx.request({
 		  url: app.globalData.urls + '/banner/list',
@@ -88,6 +59,7 @@ Page({
 		    type: 'hot'
 		  },
 		  success: function (res) {
+				console.log(res.data.data)
 		    if (res.data.code == 0) {
 		      that.setData({
 		        hot: res.data.data
@@ -102,17 +74,18 @@ Page({
 		    key: 'topgoods'
 		  },
 		  success: function (res) {
-		    if (res.data.code == 0) {
-		      that.setData({
-		        topgoods: res.data.data
+				if (res.data.code == 0) {
+					that.setData({
+						topgoods: res.data.data
 		      });
 		      wx.request({
-		        url: app.globalData.urls + '/shop/goods/list',
+						url: app.globalData.urls + '/shop/goods/list',
 		        data: {
-		          recommendStatus: 1,
+							recommendStatus: 1,
 		          pageSize: 10
 		        },
 		        success: function (res) {
+							// console.log(res.data)
 		          that.setData({
 		            goods: [],
 		            loadingMoreHidden: true
