@@ -29,6 +29,12 @@
           "pathName": "pages/cart/cart",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/address-add/address-add",
+          "pathName": "pages/address-add/address-add",
+          "query": "",
+          "scene": null
         }
       ]
     }

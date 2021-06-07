@@ -11,7 +11,8 @@ Page({
     selDistrict: '请选择',
     selProvinceIndex: 0,
     selCityIndex: 0,
-    selDistrictIndex: 0
+    selDistrictIndex: 0,
+    issetaddress:false
   },
   bindCancel: function () {
     wx.navigateBack({})
@@ -100,7 +101,8 @@ Page({
         isDefault: 'true'
       },
       success: function (res) {
-        if (res.data.code != 0) {
+        // if (!res.data.success) {
+        if (app.globalData.usinfo == 0) {
           // 登录错误 
           wx.hideLoading();
           wx.showModal({
