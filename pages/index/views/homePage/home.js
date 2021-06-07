@@ -18,22 +18,22 @@ Component({
       'https://img30.360buyimg.com/babel/s1420x960_jfs/t1/122421/7/8067/75888/5f1e6cf0E30279d66/895260b7a591fe62.png!cc_1420x960.webp'
     ],
     menus: [{
-        icon: '/images/iconimg/youxuan.png',
+        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/youxuan.png',
         title: '优选商城',
         color:'#BEE570'
       },
       {
-        icon: '/images/iconimg/nongshi.png',
+        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/nongshi.png',
         title: '逛农市',
         color:'#F8CEB4'
       },
       {
-        icon: '/images/iconimg/zhengce.png',
+        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/youxuan.png',
         title: '看政策',
         color:'#9DBAE1'
       },
       {
-        icon: '/images/iconimg/funong.png',
+        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/funong.png',
         title: '消费帮扶',
         color:'#B4DDFF'
       }

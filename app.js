@@ -23,10 +23,11 @@ App({
 	siteInfo: require("config.js"),
 	login: function () {
 	  var that = this;
-	  var token = that.globalData.token;
+		var token = that.globalData.token;
+		console.log(token);
 	  if (token) {
 	    wx.request({
-	      url: that.globalData.urls + "/user/check-token",
+	      url: "http://127.0.0.1:8080/testxcx/CheckLogin",
 	      data: {
 	        token: token
 	      },
@@ -42,10 +43,15 @@ App({
 	  wx.login({
 	    success: function (res) {
 	      wx.request({
-	        url: that.globalData.urls + "/user/wxapp/login",
-	        data: {
-	          code: res.code
-	        },
+	        url: "http://127.0.0.1:8080/testxcx/Login",
+	        header: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          data: {
+            code: res.code
+          },          
+          method: 'POST',
 	        success: function (res) {
 	          if (res.data.code == 1e4) {
 	            that.globalData.usinfo = 0;

@@ -18,17 +18,17 @@ Component({
         now:59.9
       },
       {
-        img:'/images/goods/tz.jpg',
+        img:'http://qubj0g32q.hd-bkt.clouddn.com/tz.jpg',
         original:28.8,
         now:21
       },
       {
-        img:'/images/goods/jly.jpg',
+        img:'http://qubj0g32q.hd-bkt.clouddn.com/jly.jpg',
         original:89.9,
         now:69.9
       },
       {
-        img:'/images/goods/jg.png',
+        img:'http://qubj0g32q.hd-bkt.clouddn.com/jg.png',
         original:42.7,
         now:24.5
       },
