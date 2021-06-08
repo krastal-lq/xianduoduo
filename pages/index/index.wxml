@@ -25,24 +25,27 @@
 
 
 
-	<view wx:if="{{topgoods}}" class="goods-container">
-		<view class="goods-title" bindtap="tapSales" data-id="{{topgoods.remark}}">
+	<view class="goods-container">
+		<view class="goods-title" bindtap="tapSales">
 			<view class="line"></view>
-			<view class="text">{{topgoods.value}}</view>
+			<view class="text">人气推荐</view>
 			<view class="line"></view>
 		</view>
 		<!-- 商品列表 -->
 		<navigator url="/pages/goods-detail/goods-detail?id={{item.id}}" class="goods-list" wx:for-items="{{goods}}"
 			wx:key="{{index}}">
+			<!-- <image src="{{item.goodsimageList[0].url}}" /> -->
 			<image src="{{item.pic}}" />
 			<view class="goods-list-title">{{item.name}}</view>
+			<!-- <view class="goods-list-promotPrice">Ұ{{item.promotPrice}}</view> -->
+			<!-- <view class="goods-list-price">Ұ{{item.price}}</view> -->
 			<view class="goods-list-text">{{item.characteristic}}</view>
 			<view class="goods-list-money">Ұ{{item.minPrice}}</view>
 		</navigator>
 
 	</view>
 </view>
-<view class="show-container" hidden="{{wxlogin}}">
+<!-- <view class="show-container" hidden="{{wxlogin}}">
 	<view class="show-box">
 		<view class="show-logo-box">
 			<image src="{{toplogo}}" />
@@ -62,4 +65,4 @@
 		</view>
 		<button open-type="getUserInfo" bindgetuserinfo="userlogin">允许</button>
 	</view>
-</view>
+</view> -->

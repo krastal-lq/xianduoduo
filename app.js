@@ -159,6 +159,7 @@ App({
 		}
 		return false;
 	},
+	//获取购物车商品数量
 	getShopCartNum: function () {
 		var that = this
 		wx.getStorage({

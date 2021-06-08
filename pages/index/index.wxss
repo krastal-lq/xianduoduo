@@ -180,9 +180,16 @@ page{
   overflow: hidden;
 }
 
-.goods-list-money {
+.goods-list-promotPrice {
   font-size: 30rpx;
   color: #ab2b2b;
+  display: inline-block;
+}
+.goods-list-price {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration:line-through solid rgba(0, 0, 0, 0.3);
+  font-size: 0.8rem;
 }
 .show-container {
   position: fixed;

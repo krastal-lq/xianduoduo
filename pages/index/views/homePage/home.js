@@ -28,7 +28,7 @@ Component({
         color:'#F8CEB4'
       },
       {
-        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/youxuan.png',
+        icon: 'http://qubj0g32q.hd-bkt.clouddn.com/zhengce.png',
         title: '看政策',
         color:'#9DBAE1'
       },
