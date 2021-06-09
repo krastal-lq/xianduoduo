@@ -514,7 +514,7 @@ swiper-item image {
   width: 36rpx;
   height: 36rpx;
   flex: 1;
-  background: url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
+  background: url("http://qubj0g32q.hd-bkt.clouddn.com/images/iconing/close/%E5%85%B3%E9%97%AD.png") no-repeat center center;
   background-size: 36rpx auto;
   align-self: flex-start;
   margin-top: -10rpx;

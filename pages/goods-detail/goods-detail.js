@@ -22,7 +22,7 @@ Page({
     selectptPrice: 0,
     propertyChildIds: "",
     propertyChildNames: "",
-    canSubmit: false, //  选中规格尺寸时候是否允许加入购物车
+    canSubmit: true, //  选中规格尺寸时候是否允许加入购物车
     shopCarInfo: {},
     shopType: "addShopCar", //购物类型，加入购物车或立即购买，默认为加入购物车
     tabArr: {
@@ -114,19 +114,6 @@ Page({
         id: that.data.id
       },
       success: function (res) {
-        console.log(res)
-        var selectSizeTemp = "";
-        // if (res.data.data.properties) {
-        //   for (var i = 0; i < res.data.data.properties.length; i++) {
-        //     selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
-        //   }
-        //   that.setData({
-        //     hasMoreSelect: true,
-        //     selectSize: that.data.selectSize + selectSizeTemp,
-        //     selectSizePrice: res.data.data.basicInfo.minPrice,
-        //     selectptPrice: res.data.data.basicInfo.pingtuanPrice
-        //   });
-        // }
         that.data.goodsDetail = res.data.rows[0];
         console.log(that.data.goodsDetail)
         that.setData({
@@ -171,7 +158,7 @@ Page({
     //   }
     // });
 
-    this.reputation(that.data.id);
+    // this.reputation(that.data.id);
   },
 
   goShopCar: function () {
@@ -227,66 +214,6 @@ Page({
     }
   },
   /**
-   * 选择商品规格
-   * @param {Object} e
-   */
-  labelItemTap: function (e) {
-    var that = this;
-    // 取消该分类下的子栏目所有的选中状态
-    var childs = that.data.goodsDetail.properties[e.currentTarget.dataset.propertyindex].childsCurGoods;
-    for (var i = 0; i < childs.length; i++) {
-      that.data.goodsDetail.properties[e.currentTarget.dataset.propertyindex].childsCurGoods[i].active = false;
-    }
-    // 设置当前选中状态
-    that.data.goodsDetail.properties[e.currentTarget.dataset.propertyindex].childsCurGoods[e.currentTarget.dataset.propertychildindex].active = true;
-    // 获取所有的选中规格尺寸数据
-    var needSelectNum = that.data.goodsDetail.properties.length;
-    var curSelectNum = 0;
-    var propertyChildIds = "";
-    var propertyChildNames = "";
-    for (var i = 0; i < that.data.goodsDetail.properties.length; i++) {
-      childs = that.data.goodsDetail.properties[i].childsCurGoods;
-      for (var j = 0; j < childs.length; j++) {
-        if (childs[j].active) {
-          curSelectNum++;
-          propertyChildIds = propertyChildIds + that.data.goodsDetail.properties[i].id + ":" + childs[j].id + ",";
-          propertyChildNames = propertyChildNames + that.data.goodsDetail.properties[i].name + ":" + childs[j].name + "  ";
-        }
-      }
-    }
-    var canSubmit = false;
-    if (needSelectNum == curSelectNum) {
-      canSubmit = true;
-    }
-    // 计算当前价格
-    if (canSubmit) {
-      wx.request({
-        url: app.siteInfo.url + app.siteInfo.subDomain + '/shop/goods/price',
-        data: {
-          goodsId: that.data.goodsDetail.basicInfo.id,
-          propertyChildIds: propertyChildIds
-        },
-        success: function (res) {
-
-          that.setData({
-            selectSizePrice: res.data.data.price,
-            propertyChildIds: propertyChildIds,
-            propertyChildNames: propertyChildNames,
-            buyNumMax: res.data.data.stores,
-            buyNumber: (res.data.data.stores > 0) ? 1 : 0,
-            selectptPrice: res.data.data.pingtuanPrice
-          });
-        }
-      })
-    }
-
-    this.setData({
-      goodsDetail: that.data.goodsDetail,
-      canSubmit: canSubmit
-    })
-
-  },
-  /**
    * 加入购物车
    */
   addShopCar: function () {
@@ -327,23 +254,6 @@ Page({
    */
   buyNow: function () {
     var that = this;
-    if (that.data.goodsDetail.properties && !that.data.canSubmit) {
-      wx.hideLoading();
-      if (!that.data.canSubmit) {
-        wx.showModal({
-          title: '提示',
-          content: '请选择商品规格！',
-          showCancel: false
-        })
-      }
-      that.bindGuiGeTap();
-      wx.showModal({
-        title: '提示',
-        content: '请先选择规格尺寸哦~',
-        showCancel: false
-      })
-      return;
-    }
     if (that.data.buyNumber < 1) {
       wx.hideLoading();
       wx.showModal({
@@ -423,9 +333,9 @@ Page({
    */
   buliduBuyNowInfo: function () {
     var shopCarMap = {};
-    shopCarMap.goodsId = this.data.goodsDetail.basicInfo.id;
-    shopCarMap.pic = this.data.goodsDetail.basicInfo.pic;
-    shopCarMap.name = this.data.goodsDetail.basicInfo.name;
+    shopCarMap.goodsId = this.data.goodsDetail.id;
+    shopCarMap.pic = this.data.goodsDetail.goodsimageList[0].url;
+    shopCarMap.name = this.data.goodsDetail.name;
     // shopCarMap.label=this.data.goodsDetail.basicInfo.id; 规格尺寸 
     shopCarMap.propertyChildIds = this.data.propertyChildIds;
     shopCarMap.label = this.data.propertyChildNames;
@@ -433,9 +343,9 @@ Page({
     shopCarMap.left = "";
     shopCarMap.active = true;
     shopCarMap.number = this.data.buyNumber;
-    shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
-    shopCarMap.logistics = this.data.goodsDetail.logistics;
-    shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
+    // shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
+    // shopCarMap.logistics = this.data.goodsDetail.logistics;
+    // shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
 
     var buyNowInfo = {};
     if (!buyNowInfo.shopNum) {
