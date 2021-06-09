@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/start/start",
+    "pages/consumption/consumption",
+    "pages/new/new",
+    "pages/go-market/gomarket",
+    "pages/news/news",
     "pages/index/index",
     "pages/home/home",
     "pages/classifys2/classifys2",
