@@ -1,0 +1,80 @@
+<navigation id='Navigation' show-icon="{{true}}" title="消费帮扶" show-title="{{true}}"></navigation>
+
+<view class="container">
+  <view class="coupon-list">
+    <!-- 第一个 -->
+    <view class="sawtooth-bor item">
+      <view class="pt10 discount">
+        <text class="fs36">50</text>
+        <view class="fs12">满100使用</view>
+        <view class="fs12">有效期2018.03.16-2018.05.31</view>
+      </view>
+      <view class="textc receive">立即领取</view>
+    </view>
+    <!-- 第二个 -->
+    <view class="sawtooth-bor1 item">
+      <view class="pt10 discount1">
+        <text class="fs36">100</text>
+        <view class="fs12">满200使用</view>
+        <view class="fs12">有效期2018.03.16-2018.05.31</view>
+      </view>
+      <view class="textc receive1">立即领取</view>
+    </view>
+<!-- 第三个 -->
+    <view class="sawtooth-bor2 item">
+      <view class="pt10 discount2">
+        <text class="fs36">200</text>
+        <view class="fs12">满500使用</view>
+        <view class="fs12">有效期2018.03.16-2018.05.31</view>
+      </view>
+      <view class="textc receive2">立即领取</view>
+    </view>
+
+<!-- 第四个 -->
+    <view class="sawtooth-bor3 item">
+      <view class="pt10 discount3">
+        <text class="fs36">400</text>
+        <view class="fs12">满1000使用</view>
+        <view class="fs12">有效期2018.03.16-2018.05.31</view>
+      </view>
+      <view class="textc receive3">立即领取</view>
+    </view>
+
+
+<!-- 第五个 -->
+    <view class="sawtooth-bor4 item">
+      <view class="pt10 discount4">
+        <text class="fs36">500</text>
+        <view class="fs12">满1500使用</view>
+        <view class="fs12">有效期2018.03.16-2018.05.31</view>
+      </view>
+      <view class="textc receive4">立即领取</view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 第二个 -->
+     <!-- <view class="wrapper">
+    <view class="left">
+        <text >50</text>
+        <text>满498使用</text>
+        <view>有效期2018.03.16-2018.05.31</view>
+    </view>
+    <view class="right">
+      <text>立即领取</text>
+    </view>
+    </view> -->
+  </view>
+</view>
