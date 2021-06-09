@@ -506,7 +506,7 @@ swiper-item image {
 
 .pop-goods-price {
   font-size: 26rpx;
-  color: #fbbd08;
+  color: red;
   margin-top: 20rpx;
 }
 

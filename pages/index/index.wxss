@@ -182,7 +182,7 @@ page{
 
 .goods-list-promotPrice {
   font-size: 30rpx;
-  color: #ab2b2b;
+  color: red;
   display: inline-block;
 }
 .goods-list-price {

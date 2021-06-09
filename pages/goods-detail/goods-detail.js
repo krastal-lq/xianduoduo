@@ -10,7 +10,7 @@ Page({
     duration: 500,
     goodsDetail: {},
     swiperCurrent: 0,
-    hasMoreSelect: false,
+    hasMoreSelect: true,
     selectSize: "选择规格：",
     selectSizePrice: 0,
     shopNum: 0,
@@ -24,7 +24,7 @@ Page({
     propertyChildNames: "",
     canSubmit: false, //  选中规格尺寸时候是否允许加入购物车
     shopCarInfo: {},
-    shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
+    shopType: "addShopCar", //购物类型，加入购物车或立即购买，默认为加入购物车
     tabArr: {
       curHdIndex: 0,
       curBdIndex: 0
@@ -32,9 +32,9 @@ Page({
     wxlogin: true,
     sharecode: true,
     sharebox: true,
-		title:"商品详情",
+    title: "商品详情",
     barBg: 'red',
-		color: '#ffffff'
+    color: '#ffffff'
   },
 
   //事件处理函数
@@ -72,7 +72,11 @@ Page({
               data: vid
             })
           }
-          if (sid) { that.setData({ share: sid }); }
+          if (sid) {
+            that.setData({
+              share: sid
+            });
+          }
         }
       }
     }
@@ -83,12 +87,16 @@ Page({
           data: e.inviter_id
         })
       }
-      if (e.share) { that.setData({ share: e.share }); }
+      if (e.share) {
+        that.setData({
+          share: e.share
+        });
+      }
       that.setData({
         id: e.id
       })
-    }    
-    
+    }
+
     this.getfav();
     // 获取购物车数据
     wx.getStorage({
@@ -101,71 +109,68 @@ Page({
       }
     })
     wx.request({
-      url: app.globalData.urls + '/shop/goods/detail',
+      url: 'http://127.0.0.1:8080/xianDD/goods/Detail',
       data: {
         id: that.data.id
       },
       success: function (res) {
-				// console.log(res)
+        console.log(res)
         var selectSizeTemp = "";
-        if (res.data.data.properties) {
-          for (var i = 0; i < res.data.data.properties.length; i++) {
-            selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
-          }
-          that.setData({
-            hasMoreSelect: true,
-            selectSize: that.data.selectSize + selectSizeTemp,
-            selectSizePrice: res.data.data.basicInfo.minPrice,
-            selectptPrice: res.data.data.basicInfo.pingtuanPrice
-          });
-        }
-        that.data.goodsDetail = res.data.data;
-        if (res.data.data.basicInfo.videoId) {
-          that.getVideoSrc(res.data.data.basicInfo.videoId);
-        }
+        // if (res.data.data.properties) {
+        //   for (var i = 0; i < res.data.data.properties.length; i++) {
+        //     selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
+        //   }
+        //   that.setData({
+        //     hasMoreSelect: true,
+        //     selectSize: that.data.selectSize + selectSizeTemp,
+        //     selectSizePrice: res.data.data.basicInfo.minPrice,
+        //     selectptPrice: res.data.data.basicInfo.pingtuanPrice
+        //   });
+        // }
+        that.data.goodsDetail = res.data.rows[0];
+        console.log(that.data.goodsDetail)
         that.setData({
-          goodsDetail: res.data.data,
-          selectSizePrice: res.data.data.basicInfo.minPrice,
-          buyNumMax: res.data.data.basicInfo.stores,
-          buyNumber: (res.data.data.basicInfo.stores > 0) ? 1 : 0,
-          selectptPrice: res.data.data.basicInfo.pingtuanPrice
+          goodsDetail: res.data.rows[0],
+          selectSizePrice: res.data.rows[0].promotPrice,
+          selectptPrice: res.data.rows[0].promotPrice
         });
-        WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+        // WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
       }
     });
-    wx.request({
-      url: app.globalData.urls + '/shop/goods/detail',
-      data: {
-        id: that.data.id
-      },
-      success: function (res) {
-				// console.log(res)
-        var selectSizeTemp = "";
-        if (res.data.data.properties) {
-          for (var i = 0; i < res.data.data.properties.length; i++) {
-            selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
-          }
-          that.setData({
-            hasMoreSelect: true,
-            selectSize: that.data.selectSize + selectSizeTemp,
-            selectSizePrice: res.data.data.basicInfo.minPrice,
-            selectptPrice: res.data.data.basicInfo.pingtuanPrice
-          });
-        }
-        that.data.goodsDetail = res.data.data;
-        if (res.data.data.basicInfo.videoId) {
-          that.getVideoSrc(res.data.data.basicInfo.videoId);
-        }
-        that.setData({
-          goodsDetail: res.data.data,
-          selectSizePrice: res.data.data.basicInfo.minPrice,
-          buyNumMax: res.data.data.basicInfo.stores,
-          buyNumber: (res.data.data.basicInfo.stores > 0) ? 1 : 0,
-          selectptPrice: res.data.data.basicInfo.pingtuanPrice
-        });
-        WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
-      }
-    });
+    // wx.request({
+    //   url: app.globalData.urls + '/shop/goods/detail',
+    //   data: {
+    //     id: that.data.id
+    //   },
+    //   success: function (res) {
+    // 		console.log(res.data)
+    //     var selectSizeTemp = "";
+    //     if (res.data.data.properties) {
+    //       for (var i = 0; i < res.data.data.properties.length; i++) {
+    //         selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
+    //       }
+    //       that.setData({
+    //         hasMoreSelect: true,
+    //         selectSize: that.data.selectSize + selectSizeTemp,
+    //         selectSizePrice: res.data.data.basicInfo.minPrice,
+    //         selectptPrice: res.data.data.basicInfo.pingtuanPrice
+    //       });
+    //     }
+    //     that.data.goodsDetail = res.data.data;
+    //     if (res.data.data.basicInfo.videoId) {
+    //       that.getVideoSrc(res.data.data.basicInfo.videoId);
+    //     }
+    //     that.setData({
+    //       goodsDetail: res.data.data,
+    //       selectSizePrice: res.data.data.basicInfo.minPrice,
+    //       buyNumMax: res.data.data.basicInfo.stores,
+    //       buyNumber: (res.data.data.basicInfo.stores > 0) ? 1 : 0,
+    //       selectptPrice: res.data.data.basicInfo.pingtuanPrice
+    //     });
+    //     WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+    //   }
+    // });
+
     this.reputation(that.data.id);
   },
 
@@ -282,20 +287,9 @@ Page({
 
   },
   /**
-  * 加入购物车
-  */
+   * 加入购物车
+   */
   addShopCar: function () {
-    if (this.data.goodsDetail.properties && !this.data.canSubmit) {
-      if (!this.data.canSubmit) {
-        wx.showModal({
-          title: '提示',
-          content: '请选择商品规格！',
-          showCancel: false
-        })
-      }
-      this.bindGuiGeTap();
-      return;
-    }
     if (this.data.buyNumber < 1) {
       wx.showModal({
         title: '提示',
@@ -316,8 +310,8 @@ Page({
       key: "shopCarInfo",
       data: shopCarInfo
     })
-		//更新tabar购物车数字角标
-		app.getShopCartNum()
+    //更新tabar购物车数字角标
+    app.getShopCartNum()
     this.closePopupTap();
     wx.showToast({
       title: '加入购物车成功',
@@ -328,9 +322,9 @@ Page({
 
     //shopCarInfo = {shopNum:12,shopList:[]}
   },
-	/**
-	  * 立即购买
-	  */
+  /**
+   * 立即购买
+   */
   buyNow: function () {
     var that = this;
     if (that.data.goodsDetail.properties && !that.data.canSubmit) {
@@ -385,9 +379,9 @@ Page({
   bulidShopCarInfo: function () {
     // 加入购物车
     var shopCarMap = {};
-    shopCarMap.goodsId = this.data.goodsDetail.basicInfo.id;
-    shopCarMap.pic = this.data.goodsDetail.basicInfo.pic;
-    shopCarMap.name = this.data.goodsDetail.basicInfo.name;
+    shopCarMap.goodsId = this.data.goodsDetail.id;
+    shopCarMap.pic = this.data.goodsDetail.goodsimageList[0].url;
+    shopCarMap.name = this.data.goodsDetail.name;
     // shopCarMap.label=this.data.goodsDetail.basicInfo.id; 规格尺寸 
     shopCarMap.propertyChildIds = this.data.propertyChildIds;
     shopCarMap.label = this.data.propertyChildNames;
@@ -395,9 +389,9 @@ Page({
     shopCarMap.left = "";
     shopCarMap.active = true;
     shopCarMap.number = this.data.buyNumber;
-    shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
-    shopCarMap.logistics = this.data.goodsDetail.logistics;
-    shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
+    // shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
+    // shopCarMap.logistics = this.data.goodsDetail.logistics;
+    // shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
 
     var shopCarInfo = this.data.shopCarInfo;
     if (!shopCarInfo.shopNum) {
@@ -424,9 +418,9 @@ Page({
     }
     return shopCarInfo;
   },
-	/**
-	 * 组建立即购买信息
-	 */
+  /**
+   * 组建立即购买信息
+   */
   buliduBuyNowInfo: function () {
     var shopCarMap = {};
     shopCarMap.goodsId = this.data.goodsDetail.basicInfo.id;
@@ -483,7 +477,9 @@ Page({
   },
   onShareAppMessage: function () {
     var that = this;
-    that.setData({ sharebox: true })
+    that.setData({
+      sharebox: true
+    })
     return {
       title: this.data.goodsDetail.basicInfo.name,
       path: '/pages/goods-detail/goods-detail?id=' + this.data.goodsDetail.basicInfo.id + '&inviter_id=' + app.globalData.uid + '&share=1',
@@ -609,12 +605,14 @@ Page({
         that.setData({
           wxlogin: false
         })
-        }
-      
+      }
+
     }, 1000)
   },
-  getShareBox:function(){
-    this.setData({sharebox: false})
+  getShareBox: function () {
+    this.setData({
+      sharebox: false
+    })
   },
   getcode: function () {
     var that = this;
@@ -626,7 +624,7 @@ Page({
       data: {
         scene: "i=" + that.data.goodsDetail.basicInfo.id + ",u=" + app.globalData.uid + ",s=1",
         page: "pages/goods-detail/goods-detail",
-        expireHours:1
+        expireHours: 1
       },
       success: function (res) {
         if (res.data.code == 0) {
