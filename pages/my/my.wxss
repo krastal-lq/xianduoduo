@@ -49,7 +49,7 @@ page {
 }
 
 .userinfo-nickname {
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 32rpx;
 	text-align: center;
 	margin-bottom: 10rpx;
@@ -60,7 +60,7 @@ page {
   font-size: 24rpx;
   margin-top: 5px;
   background-color: #b3a078;
-  color: #fff;
+  color: rgb(0, 0, 0);
   padding: 1px 5px;
   border-radius: 2px;
 }
@@ -68,7 +68,7 @@ page {
 .userinfo-score-day {
   font-size: 24rpx;
   margin-top: 5px;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 .userinfo-item {
@@ -119,7 +119,7 @@ page {
   position: absolute;
   right: 30rpx;
   background-color: #ff3f3e;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 24rpx;
   line-height: 36rpx;
   top: -10rpx;
