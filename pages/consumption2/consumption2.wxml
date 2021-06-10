@@ -1,0 +1,101 @@
+<navigation id='Navigation' show-icon="{{true}}" title="消费帮扶" show-title="{{true}}"></navigation>
+
+
+<!--index.wxml-->
+<view class="container">
+  <!--轮播图-->
+  <swiper class="swiper-wrapper" autoplay="true" circular="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#FFA042">
+      <swiper-item class="swiper-item" wx:for="{{slides}}" wx:key="*this">
+        <image class="slider-image" src="{{item}}" mode="widthFix"></image>
+      </swiper-item>
+  </swiper>
+  <!--导航按钮-->
+  <view class="topic-header">
+      <text>领劵专区</text>
+      <image class="icon-right" src="/images/pic/箭头图标.png"></image>
+    </view>
+ <view class="pos1">
+    <view class="container1">
+  <view class="coupon-list">
+    <view class="sawtooth-bor item">
+      <view class="discount">
+        <text class="fs36">10</text>
+      </view>
+      <view class="textc receive">满100使用 立即领取</view>
+    </view>
+  </view>
+  </view>
+ </view>
+
+
+<view class="pos2">
+ <view class="container1">
+ <view class="coupon-list">
+    <view class="sawtooth-bor1 item">
+      <view class="discount1">
+        <text class="fs36">50</text>
+      </view>
+      <view class="textc receive1">满200使用 立即领取</view>
+    </view>
+  </view>
+ </view>
+</view>
+
+
+  <view class="special-topic-wrapper">
+    <view class="topic-header">
+      <text>优惠专区</text>
+      <image class="icon-right" src="/images/pic/箭头图标.png"></image>
+    </view>
+    <view class="scroll-wrapper">
+      <scroll-view scroll-x>
+        <view class="topic-item" wx:for="{{topicList}}" wx:key="*this">
+          <image class="topic-img" src="{{item.img}}"></image>
+          <view class="topic-item-info">
+            <text class="topic-item-title">{{item.title}}</text>
+            <text class="topic-item-price">￥{{item.price}}</text>
+          </view>
+          <text class="topic-item-sub-title">{{item.subTitle}}</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+
+
+
+
+  <!--全民砍价-->
+  <view class="bargain-wrapper">
+    <view class="bargain-header">
+      <text>消费帮扶专区</text>
+      <image src="/images/pic/箭头图标.png" class="icon-right"></image>
+    </view>
+    <view class="bargain-item" wx:for="{{bargainList}}" wx:key="*this" >
+      <image class="bargain-img" src="{{item.img}}"></image>
+      <view class="bargain-info">
+        <view class="info-header">
+          <text class="title">{{item.title}}</text>
+          <text class="desc">{{item.desc}}</text>
+        </view>
+        <view class="info-price">
+          <view class="base-price">
+            <text class="money">￥{{item.basePrice}}</text>
+            <text>现价</text>
+          </view>
+          <view class="original-price">
+            <text>￥{{item.originalPrice}}</text>
+            <text>原价</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!--到底提示-->
+  <view class="bottom-tip">
+    <text>到底了，再往上逛逛吧~</text>
+  </view>
+</view>
+
+

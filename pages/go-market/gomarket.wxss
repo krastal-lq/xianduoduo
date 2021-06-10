@@ -52,9 +52,22 @@ page{
 }
 .user-time{
   margin-left: 10rpx;
-  font-size:15px;
+  font-size:10px;
   color:rgb(120, 120, 120)
 }
+
+.TDD-view label{
+  font-size: 20px;
+  font-weight: 600;
+}
+.TDD-view text{
+  font-size: 13px;
+  margin-left: -20px;
+}
+
+
+
+
 /* 内容 */
 .user-content{
   display: flex;

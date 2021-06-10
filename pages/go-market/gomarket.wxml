@@ -31,8 +31,9 @@
         <view class='TDD-view'>
           <label>欢迎大家来海南品尝贵妃芒</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞1.png'></image>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论1.png'></image>
+          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
+          <text>99+</text>
+          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
         </view>
       </view>
     </view>
@@ -59,7 +60,7 @@
         </view>
         <!-- 内容 -->
         <view class='user-content-view'>
-          <text class='user-content'>【火爆上市陕西徐香猕猴桃】徐香猕猴桃是江苏省徐州市果园在1975年从北京植物园引入的美味猕猴桃实生苗中选出并培育出的品种。徐香猕猴桃适应性强，在沿海和黄淮平原的碱性条件下生长正常，开始结果早、品质优良、味甜浓香。1990年通过鉴定，1992年在中国猕猴桃基地品种鉴评会上获优良品种奖。至今已被多地引进种植。</text>
+          <text class='user-content'>【火爆上市陕西徐香猕猴桃】徐香猕猴桃是江苏省徐州市果园在1975年从北京植物园引入的美味猕猴桃。徐香猕猴桃适应性强，在沿海和黄淮平原的碱性条件下生长正常，开始结果早、品质优良、味甜浓香。</text>
         </view>
         <!-- 图片 -->
         <view class='photo-view'>
@@ -73,8 +74,9 @@
         <view class='TDD-view'>
           <label>欢迎大家来陕西品徐香猕猴桃</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞1.png'></image>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论1.png'></image>
+          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
+          <text>99+</text>
+          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
         </view>
       </view>
     </view>
@@ -113,8 +115,9 @@
         <view class='TDD-view'>
           <label>欢迎大家来贵州挖鲜土豆</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞1.png'></image>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论1.png'></image>
+          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
+          <text>99+</text>
+          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
         </view>
       </view>
     </view>

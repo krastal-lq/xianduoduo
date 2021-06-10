@@ -19,7 +19,7 @@
     </view>
     <text class="post-title">关于《2021-2023年农机购置补贴实施指导意见》的通知</text>
     <image class="post-image" src="/images/pic/扶贫助农4.png" bindtap="entershow"></image>
-    <text class="post-content">为指导各地规范实施农机购置补贴政策，充分发挥政策效益，推动农业机械化向全程全面高质高效转型升级，有效支撑粮食安全、重要农产品有效供给和农民增收，促进农业高质高效发展，助力全面推进乡村振兴、加快农业农村现代化，我们制定了《2021—2023年农机购置补贴实施指导意见》，现予印发，请遵照执行。</text>
+    <text class="post-content">为指导各地规范实施农机购置补贴政策，充分发挥政策效益，推动农业机械化向全程全面高质高效转型升级、重要农产品有效供给和农民增收.....</text>
     <view class="post-like">
       <image class="post-like-image" src="/images/pic/评论.png"></image>
       <text class="post-like-font">92</text>
@@ -35,7 +35,7 @@
     </view>
     <text class="post-title">《国务院办公厅关于完善支持政策促进农民持续增收的若干意见》</text>
     <image class="post-image" src="/images/pic/扶贫助农3.png" bindtap="entershow"></image>
-    <text class="post-content">小康不小康，关键看老乡。全面建成小康社会，难点在农村，关键在农民。增加农民收入是“三农”工作的中心任务，事关农民安居乐业和农村和谐稳定，事关巩固党在农村的执政基础，事关经济社会发展全局。随着经济发展进入新常态，农业发展进入新阶段，支撑农民增收的传统动力逐渐减弱，农民收入增长放缓，迫切需要拓宽新渠道、挖掘新潜力、培育新动能。为进一步完善支持政策，促进农民持续增收，经国务院同意，现提出如下意见：</text>
+    <text class="post-content">小康不小康，关键看老乡。全面建成小康社会，关键在农民。增加农民收入是“三农”工作的中心任务，事关农民安居乐业和农村和谐稳定，事关巩固党在农村的执政基础，事关经济社会发展全局...</text>
     <view class="post-like">
       <image class="post-like-image" src="/images/pic/评论.png"></image>
       <text class="post-like-font">92</text>
