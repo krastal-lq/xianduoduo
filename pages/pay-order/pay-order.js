@@ -48,11 +48,8 @@ Page({
   },
 
   onLoad: function (e) {
-<<<<<<< HEAD
-=======
     console.log(e)
     console.log(e.orderType)
->>>>>>> master
     var that = this;
     if (app.globalData.iphone == true) {
       that.setData({
