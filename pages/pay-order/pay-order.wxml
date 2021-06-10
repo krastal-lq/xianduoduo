@@ -2,12 +2,12 @@
 <view class="container">
      <form bindsubmit="createOrderList" report-submit="true">
      <view class="address-box" wx:if="{{isNeedLogistics > 0}}">
-        <view class="add-address" hidden="{{curAddressData}}">
+        <view class="add-address" hidden="{{addressInfo}}">
             <view class="title" bindtap="addAddress">新增收货地址</view>
         </view>
-        <view class="show-address" hidden="{{!curAddressData}}" bindtap="selectAddress">
-            <view class="name-tel">{{curAddressData.linkMan}}  {{curAddressData.mobile}}</view>
-            <view class="addr-text">{{curAddressData.address}}</view>
+        <view class="show-address" hidden="{{!addressInfo}}" bindtap="selectAddress">
+            <view class="name-tel">{{addressInfo.linkMan}}  {{addressInfo.mobile}}</view>
+            <view class="addr-text">{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.address}}</view>
         </view>
      </view>
      <view class="goods-list">

@@ -12,13 +12,15 @@ Page({
     selProvinceIndex: 0,
     selCityIndex: 0,
     selDistrictIndex: 0,
-    issetaddress:false
+    issetaddress: false
   },
   bindCancel: function () {
     wx.navigateBack({})
   },
   bindSave: function (e) {
     var that = this;
+    // console.log('e.detail.value')
+    // console.log(e.detail.value)
     var linkMan = e.detail.value.linkMan;
     var address = e.detail.value.address;
     var mobile = e.detail.value.mobile;
@@ -100,7 +102,7 @@ Page({
         code: code,
         isDefault: 'true'
       },
-      success: function (res) {
+      success: (res) => {
         // if (!res.data.success) {
         if (app.globalData.usinfo == 0) {
           // 登录错误 
@@ -112,8 +114,24 @@ Page({
           })
           return;
         }
+        // 加入购物车
+        var addressInfo = {};
+        addressInfo.province = this.data.selProvince;
+        addressInfo.city = this.data.selCity;
+        addressInfo.district = this.data.selDistrict;
+        addressInfo.address = address;
+        addressInfo.linkMan = linkMan;
+        addressInfo.mobile = mobile;
+
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        prevPage.setData({
+          addressInfo: addressInfo
+        })
         // 跳转到结算页面
-        wx.navigateBack({})
+        wx.navigateBack({
+          delta: 1 // 返回上一级页面。
+        })
       }
     })
   },
@@ -180,7 +198,11 @@ Page({
   },
   onLoad: function (e) {
     var that = this;
-    if (app.globalData.iphone == true) { that.setData({ iphone: 'iphone' }) }
+    if (app.globalData.iphone == true) {
+      that.setData({
+        iphone: 'iphone'
+      })
+    }
     this.initCityData(1);
     var id = e.id;
     if (id) {
@@ -271,18 +293,30 @@ Page({
 
         for (var i = 0; i < commonCityData.cityData.length; i++) {
           if (provinceName == commonCityData.cityData[i].name) {
-            let eventJ = { detail: { value: i } };
+            let eventJ = {
+              detail: {
+                value: i
+              }
+            };
             that.bindPickerProvinceChange(eventJ);
             that.data.selProvinceIndex = i;
             for (var j = 0; j < commonCityData.cityData[i].cityList.length; j++) {
               if (cityName == commonCityData.cityData[i].cityList[j].name) {
                 //that.data.selCityIndex = j;
-                eventJ = { detail: { value: j } };
+                eventJ = {
+                  detail: {
+                    value: j
+                  }
+                };
                 that.bindPickerCityChange(eventJ);
                 for (var k = 0; k < commonCityData.cityData[i].cityList[j].districtList.length; k++) {
                   if (diatrictName == commonCityData.cityData[i].cityList[j].districtList[k].name) {
                     //that.data.selDistrictIndex = k;
-                    eventJ = { detail: { value: k } };
+                    eventJ = {
+                      detail: {
+                        value: k
+                      }
+                    };
                     that.bindPickerChange(eventJ);
                   }
                 }

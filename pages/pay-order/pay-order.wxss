@@ -9,8 +9,8 @@
 
 .address-box {
   width: 100%;
-  background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center,
-                url(https://cdn.it120.cc/images/weappshop/addr-line.png) no-repeat center bottom;
+  background: url(http://qubj0g32q.hd-bkt.clouddn.com/images/iconing/order-detail/arrow-right.png) no-repeat 705rpx center,
+                url(http://qubj0g32q.hd-bkt.clouddn.com/images/iconing/order-detail/addr-line.png) no-repeat center bottom;
   background-size: 16rpx auto, 750rpx auto;
   background-color: #fff;
   margin: 20rpx 0;
@@ -33,7 +33,7 @@
   width: 664rpx;
   box-sizing: border-box;
   padding-left: 100rpx;
-  background: url(https://cdn.it120.cc/images/weappshop/ico-addr.png) no-repeat 30rpx 35rpx;
+  background: url(http://qubj0g32q.hd-bkt.clouddn.com/images/iconing/addr/icon-address.png) no-repeat 30rpx 35rpx;
   background-size: 30rpx auto;
 }
 

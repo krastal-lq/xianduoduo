@@ -48,8 +48,10 @@ Page({
   },
 
   onLoad: function (e) {
-    console.log(e)
-    console.log(e.orderType)
+    // console.log('this.data.addressInfo')
+    // console.log(this.data.addressInfo)
+    // console.log(e)
+    // console.log(e.orderType)
     var that = this;
     if (app.globalData.iphone == true) {
       that.setData({
@@ -79,6 +81,16 @@ Page({
     if (e) {
       remark = e.detail.value.remark; // 备注信息
     }
+    if (!that.data.addressInfo) {
+      wx.hideLoading();
+      wx.showModal({
+        title: '友情提示',
+        content: '请先设置您的收货地址！',
+        showCancel: false
+      })
+      return;
+    }
+    //组建传输的数据
     var postData = {
       token: loginToken,
       goodsJsonStr: that.data.goodsJsonStr,
@@ -89,33 +101,23 @@ Page({
     }
     if (!e) {
       postData.calculate = "true";
-      // console.log(that.data)
-      // console.log(that.data.goodsList)
-      var yunPrice = 0;
-      var allGoodsPrice = 0;
-      for (let i = 0; i < that.data.goodsList.length; i++) {
-        var goods = that.data.goodsList[i];
-        yunPrice += goods.freight;
-        allGoodsPrice += goods.number * goods.price;
-      }
-      // var allGoodsAndYunPrice = res.data.data.amountLogistics + res.data.data.amountTotle
-      var allGoodsAndYunPrice = allGoodsPrice+yunPrice;
-      that.setData({
-        // isNeedLogistics: res.data.data.isNeedLogistics,
-        allGoodsPrice: allGoodsPrice.toFixed(2),
-        allGoodsAndYunPrice: allGoodsAndYunPrice.toFixed(2), //res.data.data.amountLogistics + res.data.data.amountTotle,
-        yunPrice: yunPrice
-      });
-      // console.log('that.data')
-      // console.log(that.data)
       that.getMyCoupons();
       return;
     }
+    wx.request({
+      url: app.globalData.urls + '/order/create',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: postData, // 设置请求的 参数
+      success: (res) => {
+
+      }
+    })
     wx.redirectTo({
       url: "/pages/success/success?order=" + 1 + "&money=" + allGoodsAndYunPrice + "&id=" + 1
     });
-
-
   },
 
   createOrder: function (e) {
@@ -142,7 +144,7 @@ Page({
       goodsJsonStr: that.data.goodsJsonStr,
       remark: remark
     };
-    if (that.data.isNeedLogistics > 0 && false) {
+    if (that.data.isNeedLogistics > 0) {
       if (!that.data.curAddressData) {
         wx.hideLoading();
         wx.showModal({
@@ -222,7 +224,6 @@ Page({
         // var postJsonString = {};
         // postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#173177' }
         // postJsonString.keyword2 = { value: res.data.data.amountReal + '元', color: '#173177' }
-        // postJsonString.keyword3 = { value: res.data.data.orderNumber, color: '#173177' }
         // postJsonString.keyword4 = { value: '订单已关闭', color: '#173177' }
         // postJsonString.keyword5 = { value: '您可以重新下单，请在30分钟内完成支付', color: '#173177' }
         // app.sendTempleMsg(res.data.data.id, -1,
@@ -258,49 +259,45 @@ Page({
             curAddressData: null
           });
         }
-        that.processYunfei();
       }
     })
+    that.processYunfei();
   },
   processYunfei: function () {
     var that = this;
     var goodsList = this.data.goodsList;
+    console.log('goodsList')
+    console.log(goodsList)
     var goodsJsonStr = "[";
     var isNeedLogistics = 0;
     var allGoodsPrice = 0;
 
-    // console.log(goodsList)
+    var yunPrice = 0;
+    var allGoodsPrice = 0;
+
     for (let i = 0; i < goodsList.length; i++) {
       let carShopBean = goodsList[i];
       isNeedLogistics = 1;
-
+      yunPrice += carShopBean.freight;
       allGoodsPrice += carShopBean.price * carShopBean.number;
 
       var goodsJsonStrTmp = '';
       if (i > 0) {
         goodsJsonStrTmp = ",";
       }
-
-
-      let inviter_id = 0;
-      let inviter_id_storge = wx.getStorageSync('inviter_id_' + carShopBean.goodsId);
-      if (inviter_id_storge) {
-        inviter_id = inviter_id_storge;
-      }
-
-
-      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"number":' + carShopBean.number + ',"propertyChildIds":"' + carShopBean.propertyChildIds + '","logisticsType":0, "inviter_id":' + inviter_id + '}';
+      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"num":' + carShopBean.number + '"price":' + carShopBean.price + ',"totalPrice":' + (carShopBean.price * carShopBean.number + carShopBean.freight).toFixed(2) + '}';
       goodsJsonStr += goodsJsonStrTmp;
-
-
     }
+    var allGoodsAndYunPrice = allGoodsPrice + yunPrice;
     goodsJsonStr += "]";
-    //console.log(goodsJsonStr);
     that.setData({
       isNeedLogistics: isNeedLogistics,
-      goodsJsonStr: goodsJsonStr
+      goodsJsonStr: goodsJsonStr,
+      allGoodsPrice: allGoodsPrice.toFixed(2),
+      allGoodsAndYunPrice: allGoodsAndYunPrice.toFixed(2),
+      yunPrice: yunPrice
     });
-    that.createOrderList();
+    // that.createOrderList();
   },
   addAddress: function () {
     wx.navigateTo({
