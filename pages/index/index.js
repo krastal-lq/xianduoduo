@@ -63,42 +63,8 @@ Page({
 				});
 			}
 		})
-
-	// 	//获取推荐商品信息
-	// 	wx.request({
-	// 		url: app.globalData.urls + '/shop/goods/list',
-	// 		data: {
-	// 			recommendStatus: 1,
-	// 			pageSize: 10
-	// 		},
-	// 		success: function (res) {
-	// 			console.log(res.data)
-	// 			that.setData({
-	// 				goods: [],
-	// 				loadingMoreHidden: true
-	// 			});
-	// 			var goods = [];
-	// 			if (res.data.code != 0 || res.data.data.length == 0) {
-	// 				that.setData({
-	// 					loadingMoreHidden: false,
-	// 				});
-	// 				return;
-	// 			}
-	// 			for (var i = 0; i < res.data.data.length; i++) {
-	// 				goods.push(res.data.data[i]);
-	// 			}
-	// 			that.setData({
-	// 				goods: goods,
-	// 			});
-	// 		}
-	// 	})
-
 	},
-	// swiperchange: function (e) {
-	// 	this.setData({
-	// 		swiperCurrent: e.detail.current
-	// 	})
-	// },
+
 	toDetailsTap: function (e) {
 		wx.navigateTo({
 			url: "/pages/goods-detail/goods-detail?id=" + e.currentTarget.dataset.id
@@ -118,42 +84,4 @@ Page({
 			})
 		}
 	},
-	// userlogin: function (e) {
-	// 	var that = this;
-	// 	var iv = e.detail.iv;
-	// 	var encryptedData = e.detail.encryptedData;
-	// 	wx.login({
-	// 		success: function (wxs) {
-	// 			wx.request({
-	// 				url: app.globalData.urls + '/user/wxapp/register/complex',
-	// 				data: {
-	// 					code: wxs.code,
-	// 					encryptedData: encryptedData,
-	// 					iv: iv
-	// 				},
-	// 				success: function (res) {
-	// 					if (res.data.code != 0) {
-	// 						wx.showModal({
-	// 							title: '温馨提示',
-	// 							content: '需要您的授权，才能正常使用哦～',
-	// 							showCancel: false,
-	// 							success: function (res) {}
-	// 						})
-	// 					} else {
-	// 						that.setData({
-	// 							wxlogin: true
-	// 						})
-	// 						app.login();
-	// 						wx.showToast({
-	// 							title: '授权成功',
-	// 							duration: 2000
-	// 						})
-	// 						app.globalData.usinfo = 1;
-	// 						wx.showTabBar();
-	// 					}
-	// 				}
-	// 			})
-	// 		}
-	// 	})
-	// }
 })

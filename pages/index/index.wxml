@@ -32,8 +32,7 @@
 			<view class="line"></view>
 		</view>
 		<!-- 商品列表 -->
-		<navigator url="/pages/goods-detail/goods-detail?id={{item.id}}" class="goods-list" wx:for-items="{{goods}}"
-			wx:key="{{index}}">
+		<navigator url="/pages/goods-detail/goods-detail?id={{item.id}}" class="goods-list" wx:for-items="{{goods}}" wx:key="{{index}}">
 			<image src="{{item.goodsimageList[0].url}}" />
 			<!-- <image src="{{item.pic}}" /> -->
 			<view class="goods-list-title">{{item.name}}</view>

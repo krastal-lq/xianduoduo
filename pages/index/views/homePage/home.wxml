@@ -1,6 +1,6 @@
 <!--pages/home/pages/home.wxml-->
 <view class="home">
-<!-- 轮播 -->
+  <!-- 轮播 -->
   <view class="swiper-box">
     <swiper class="swiper" autoplay indicator-dots indicator-active-color='#fbbd08'>
       <swiper-item wx:for="{{swiper}}" wx:key='index'>
@@ -9,9 +9,9 @@
     </swiper>
   </view>
   <view class="menus">
-      <view class="menu" wx:for="{{menus}}" wx:key='index'>
+    <navigator class="menu" wx:for="{{menus}}" wx:key='index' url="{{item.url}}">
         <image src='{{item.icon}}' mode="widthFix" class="img" style="background-color:{{item.color}}"></image>
         <text class="title">{{item.title}}</text>
-      </view>
-    </view>
+    </navigator>
+  </view>
 </view>

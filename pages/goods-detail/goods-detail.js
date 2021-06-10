@@ -289,14 +289,14 @@ Page({
   bulidShopCarInfo: function () {
     // 加入购物车
     var shopCarMap = {};
+    shopCarMap.goodsDetail = this.data.goodsDetail;
     shopCarMap.goodsId = this.data.goodsDetail.id;
+    shopCarMap.freight = this.data.goodsDetail.freight;
+    shopCarMap.place = this.data.goodsDetail.place;
     shopCarMap.pic = this.data.goodsDetail.goodsimageList[0].url;
     shopCarMap.name = this.data.goodsDetail.name;
-    // shopCarMap.label=this.data.goodsDetail.basicInfo.id; 规格尺寸 
-    shopCarMap.propertyChildIds = this.data.propertyChildIds;
-    shopCarMap.label = this.data.propertyChildNames;
+    shopCarMap.label=this.data.goodsDetail.number+this.data.goodsDetail.unit; //规格尺寸 
     shopCarMap.price = this.data.selectSizePrice;
-    shopCarMap.left = "";
     shopCarMap.active = true;
     shopCarMap.number = this.data.buyNumber;
     // shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
@@ -333,19 +333,17 @@ Page({
    */
   buliduBuyNowInfo: function () {
     var shopCarMap = {};
+    console.log(this.data)
+    shopCarMap.goodsDetail = this.data.goodsDetail;
     shopCarMap.goodsId = this.data.goodsDetail.id;
+    shopCarMap.freight = this.data.goodsDetail.freight;
+    shopCarMap.place = this.data.goodsDetail.place;
     shopCarMap.pic = this.data.goodsDetail.goodsimageList[0].url;
     shopCarMap.name = this.data.goodsDetail.name;
-    // shopCarMap.label=this.data.goodsDetail.basicInfo.id; 规格尺寸 
-    shopCarMap.propertyChildIds = this.data.propertyChildIds;
-    shopCarMap.label = this.data.propertyChildNames;
+    shopCarMap.label=this.data.goodsDetail.number+this.data.goodsDetail.unit; //规格尺寸 
     shopCarMap.price = this.data.selectSizePrice;
-    shopCarMap.left = "";
     shopCarMap.active = true;
     shopCarMap.number = this.data.buyNumber;
-    // shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
-    // shopCarMap.logistics = this.data.goodsDetail.logistics;
-    // shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
 
     var buyNowInfo = {};
     if (!buyNowInfo.shopNum) {
@@ -447,15 +445,14 @@ Page({
     wx.request({
       url: app.globalData.urls + '/shop/goods/fav/add',
       data: {
-        goodsId: this.data.goodsDetail.basicInfo.id,
+        goodsId: this.data.goodsDetail.id,
         token: app.globalData.token
       },
       success: function (res) {
-        if (res.data.code == 0) {
+        if (res.data.code == 2000) {
           wx.showToast({
             title: '收藏成功',
             icon: 'success',
-            image: '../../images/active.png',
             duration: 2000
           })
           that.setData({
@@ -470,15 +467,14 @@ Page({
     wx.request({
       url: app.globalData.urls + '/shop/goods/fav/delete',
       data: {
-        goodsId: this.data.goodsDetail.basicInfo.id,
+        goodsId: this.data.goodsDetail.id,
         token: app.globalData.token
       },
       success: function (res) {
-        if (res.data.code == 0) {
+        if (res.data.code == 2000) {
           wx.showToast({
             title: '取消收藏',
             icon: 'success',
-            image: '../../images/error.png',
             duration: 2000
           })
           that.setData({
@@ -516,7 +512,6 @@ Page({
           wxlogin: false
         })
       }
-
     }, 1000)
   },
   getShareBox: function () {

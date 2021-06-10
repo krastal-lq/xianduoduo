@@ -21,7 +21,7 @@ Page({
     //console.log(this.data.orderType)
     var that = this;
     var shopList = [];
-    
+
     //立即购买下单
     if ("buyNow" == that.data.orderType) {
       var buyNowInfoMem = wx.getStorageSync('buyNowInfo');
@@ -41,14 +41,19 @@ Page({
     that.setData({
       goodsList: shopList,
     });
+    // console.log("shopList")
+    // console.log(this.data.goodsList)
+
     that.initShippingAddress();
   },
 
   onLoad: function (e) {
-    console.log(e)
-    console.log(e.orderType)
     var that = this;
-    if (app.globalData.iphone == true) { that.setData({ iphone: 'iphone' }) }
+    if (app.globalData.iphone == true) {
+      that.setData({
+        iphone: 'iphone'
+      })
+    }
     //显示收货地址标识
     that.setData({
       isNeedLogistics: 1,
@@ -64,6 +69,51 @@ Page({
       return "";
     }
     return aaa;
+  },
+  createOrderList: function (e) {
+    var that = this;
+    var loginToken = app.globalData.token // 用户登录 token
+    var remark = ""; // 备注信息
+    if (e) {
+      remark = e.detail.value.remark; // 备注信息
+    }
+    var postData = {
+      token: loginToken,
+      goodsJsonStr: that.data.goodsJsonStr,
+      remark: remark
+    };
+    if (that.data.curCoupon) {
+      postData.couponId = that.data.curCoupon.id;
+    }
+    if (!e) {
+      postData.calculate = "true";
+      // console.log(that.data)
+      // console.log(that.data.goodsList)
+      var yunPrice = 0;
+      var allGoodsPrice = 0;
+      for (let i = 0; i < that.data.goodsList.length; i++) {
+        var goods = that.data.goodsList[i];
+        yunPrice += goods.freight;
+        allGoodsPrice += goods.number * goods.price;
+      }
+      // var allGoodsAndYunPrice = res.data.data.amountLogistics + res.data.data.amountTotle
+      var allGoodsAndYunPrice = allGoodsPrice+yunPrice;
+      that.setData({
+        // isNeedLogistics: res.data.data.isNeedLogistics,
+        allGoodsPrice: allGoodsPrice.toFixed(2),
+        allGoodsAndYunPrice: allGoodsAndYunPrice.toFixed(2), //res.data.data.amountLogistics + res.data.data.amountTotle,
+        yunPrice: yunPrice
+      });
+      // console.log('that.data')
+      // console.log(that.data)
+      that.getMyCoupons();
+      return;
+    }
+    wx.redirectTo({
+      url: "/pages/success/success?order=" + 1 + "&money=" + allGoodsAndYunPrice + "&id=" + 1
+    });
+
+
   },
 
   createOrder: function (e) {
@@ -90,7 +140,7 @@ Page({
       goodsJsonStr: that.data.goodsJsonStr,
       remark: remark
     };
-    if (that.data.isNeedLogistics > 0) {
+    if (that.data.isNeedLogistics > 0 && false) {
       if (!that.data.curAddressData) {
         wx.hideLoading();
         wx.showModal({
@@ -127,9 +177,10 @@ Page({
       },
       data: postData, // 设置请求的 参数
       success: (res) => {
-				// console.log(postData)
+        // console.log('res')
+        // console.log(res)
         wx.hideLoading();
-        if (res.data.code != 0) {
+        if (res.data.code != 2000) {
           wx.showModal({
             title: '错误',
             content: res.data.msg,
@@ -146,13 +197,21 @@ Page({
         }
         //console.log(that.data.goodsList[0].price)
         if (!e) {
-          var allGoodsAndYunPrice = res.data.data.amountLogistics + res.data.data.amountTotle
+
+          // console.log(that.data)
+          // console.log(that.data.goodsList)
+          var yunPrice = 0;
+          for (let i = 0; i < that.data.goodsList.length; i++) {
+            yunPrice += that.data.goodsList[i].freight;
+            yunPrice += that.data.goodsList[i].freight;
+          }
+          // var allGoodsAndYunPrice = res.data.data.amountLogistics + res.data.data.amountTotle
 
           that.setData({
             isNeedLogistics: res.data.data.isNeedLogistics,
             allGoodsPrice: res.data.data.amountTotle,
-            allGoodsAndYunPrice: allGoodsAndYunPrice,//res.data.data.amountLogistics + res.data.data.amountTotle,
-            yunPrice: res.data.data.amountLogistics
+            allGoodsAndYunPrice: allGoodsAndYunPrice, //res.data.data.amountLogistics + res.data.data.amountTotle,
+            yunPrice: yunPrice
           });
           that.getMyCoupons();
           return;
@@ -175,7 +234,7 @@ Page({
         //   app.siteInfo.deliveryorderkey, e.detail.formId,
         //   'pages/order-detail/order-detail?id=' + res.data.data.id, JSON.stringify(postJsonString));
         wx.redirectTo({
-          url: "/pages/success/success?order=" + res.data.data.orderNumber + "&money=" + res.data.data.amountReal + "&id=" + res.data.data.id
+          url: "/pages/success/success?order=" + 1 + "&money=" + yunPrice + "&id=" + 1
         });
       }
     })
@@ -208,11 +267,11 @@ Page({
     var isNeedLogistics = 0;
     var allGoodsPrice = 0;
 
+    // console.log(goodsList)
     for (let i = 0; i < goodsList.length; i++) {
       let carShopBean = goodsList[i];
-      if (carShopBean.logistics) {
-        isNeedLogistics = 1;
-      }
+      isNeedLogistics = 1;
+
       allGoodsPrice += carShopBean.price * carShopBean.number;
 
       var goodsJsonStrTmp = '';
@@ -239,7 +298,7 @@ Page({
       isNeedLogistics: isNeedLogistics,
       goodsJsonStr: goodsJsonStr
     });
-    that.createOrder();
+    that.createOrderList();
   },
   addAddress: function () {
     wx.navigateTo({

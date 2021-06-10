@@ -42,14 +42,8 @@
   height: 100rpx;
   border-radius: 50%;
 }
-.home .menus .menu .img:first-child{
-    background-color: #F8CEB4;
-}
-.home .menus .menu .img:last-child{
-  background-color:#BEE570;
-}
 .home .menus .menu .title{
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.3);
   font-weight: bold;

@@ -53,6 +53,12 @@
           "pathName": "pages/new/new",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/news/news",
+          "pathName": "pages/news/news",
+          "query": "",
+          "scene": null
         }
       ]
     }

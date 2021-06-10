@@ -46,6 +46,7 @@ App({
 			success: res => {
 				if (res.data.success) { // token有效
 					this.globalData.token = token;
+					this.globalData.usinfo = 1;
 					// 全局变量赋值后，执行回调函数，完成index中的操作
 				} else { // token无效
 					this.globalData.token = null;

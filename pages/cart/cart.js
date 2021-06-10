@@ -5,7 +5,7 @@ Page({
       saveHidden: true,
       totalPrice: 0,
       allSelect: true,
-      noSelect: false,
+      noSelect: false,  //下单时未选择任何商品
       list: []
     },
     delBtnWidth: 120,    //删除按钮宽度单位（rpx）
@@ -220,11 +220,14 @@ Page({
     return allSelect;
   },
   noSelect: function () {
+    // console.log('this.data.goodsList')
+    // console.log(this.data.goodsList)
     var list = this.data.goodsList.list;
     var noSelect = 0;
     for (var i = 0; i < list.length; i++) {
       var curItem = list[i];
       if (!curItem.active) {
+        // 未选中数量增加
         noSelect++;
       }
     }
@@ -334,6 +337,7 @@ Page({
   toPayOrder: function () {
     wx.showLoading();
     var that = this;
+    console.log(this.data.goodsList)
     if (this.data.goodsList.noSelect) {
       wx.hideLoading();
       return;
@@ -354,6 +358,8 @@ Page({
     var isFail = false;
     var doneNumber = 0;
     var needDoneNUmber = shopList.length;
+    console.log('shopList')
+    console.log(shopList)
     for (let i = 0; i < shopList.length; i++) {
       if (isFail) {
         wx.hideLoading();
@@ -361,7 +367,8 @@ Page({
       }
       let carShopBean = shopList[i];
       // 获取价格和库存
-      if (!carShopBean.propertyChildIds || carShopBean.propertyChildIds == "") {
+      // if (!carShopBean.propertyChildIds || carShopBean.propertyChildIds == "" ) {
+      if (false) {
         wx.request({
           url: app.globalData.urls + '/shop/goods/detail',
           data: {
@@ -413,26 +420,26 @@ Page({
           },
           success: function (res) {
             doneNumber++;
-            if (res.data.data.stores < carShopBean.number) {
-              wx.showModal({
-                title: '提示',
-                content: carShopBean.name + ' 库存不足，请重新购买',
-                showCancel: false
-              })
-              isFail = true;
-              wx.hideLoading();
-              return;
-            }
-            if (res.data.data.price != carShopBean.price) {
-              wx.showModal({
-                title: '提示',
-                content: carShopBean.name + ' 价格有调整，请重新购买',
-                showCancel: false
-              })
-              isFail = true;
-              wx.hideLoading();
-              return;
-            }
+            // if (res.data.data.stores < carShopBean.number) {
+            //   wx.showModal({
+            //     title: '提示',
+            //     content: carShopBean.name + ' 库存不足，请重新购买',
+            //     showCancel: false
+            //   })
+            //   isFail = true;
+            //   wx.hideLoading();
+            //   return;
+            // }
+            // if (res.data.data.price != carShopBean.price) {
+            //   wx.showModal({
+            //     title: '提示',
+            //     content: carShopBean.name + ' 价格有调整，请重新购买',
+            //     showCancel: false
+            //   })
+            //   isFail = true;
+            //   wx.hideLoading();
+            //   return;
+            // }
             if (needDoneNUmber == doneNumber) {
               that.navigateToPayOrder();
             }

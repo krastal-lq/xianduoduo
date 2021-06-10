@@ -20,21 +20,25 @@ Component({
     menus: [{
         icon: 'http://qubj0g32q.hd-bkt.clouddn.com/youxuan.png',
         title: '优选商城',
+        url: '优选商城',
         color:'#BEE570'
       },
       {
         icon: 'http://qubj0g32q.hd-bkt.clouddn.com/nongshi.png',
         title: '逛农市',
+        url: '/pages/go-market/gomarket',
         color:'#F8CEB4'
       },
       {
         icon: 'http://qubj0g32q.hd-bkt.clouddn.com/zhengce.png',
         title: '看政策',
+        url: '/pages/new/new',
         color:'#9DBAE1'
       },
       {
         icon: 'http://qubj0g32q.hd-bkt.clouddn.com/funong.png',
         title: '消费帮扶',
+        url: '/pages/consumption/consumption',
         color:'#B4DDFF'
       }
     ],

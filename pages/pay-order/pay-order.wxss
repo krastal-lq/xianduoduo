@@ -24,9 +24,9 @@
   font-size: 28rpx;
   color: #000;
   margin-left: 30rpx;
-  background: url(https://cdn.it120.cc/images/weappshop/ico-add-addr.png) no-repeat left center;
-  background-size: 60rpx auto;
-  padding: 40rpx 0 40rpx 90rpx;
+  background: url(http://qubj0g32q.hd-bkt.clouddn.com/images/iconing/address_add.png) no-repeat left center;
+  background-size: 30rpx auto;
+  padding: 40rpx;
 }
 
 .show-address {
@@ -216,6 +216,6 @@ form {
 }
 
 .jiesuan-box .total {
-  color: #fbbd08;
+  color: red;
   text-align: right;
 }
