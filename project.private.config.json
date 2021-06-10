@@ -35,6 +35,24 @@
           "pathName": "pages/address-add/address-add",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/consumption/consumption",
+          "pathName": "pages/consumption/consumption",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/go-market/gomarket",
+          "pathName": "pages/go-market/gomarket",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/new/new",
+          "pathName": "pages/new/new",
+          "query": "",
+          "scene": null
         }
       ]
     }
