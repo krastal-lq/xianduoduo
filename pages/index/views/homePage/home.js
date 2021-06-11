@@ -38,7 +38,7 @@ Component({
       {
         icon: 'http://qubj0g32q.hd-bkt.clouddn.com/funong.png',
         title: '消费帮扶',
-        url: '/pages/consumption/consumption',
+        url: '/pages/consumption2/consumption2',
         color:'#B4DDFF'
       }
     ],

@@ -59,6 +59,12 @@
           "pathName": "pages/news/news",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/consumption2/consumption2",
+          "pathName": "pages/consumption2/consumption2",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -37,9 +37,9 @@ Page({
         token: app.globalData.token
       },
       success: function (res) {
-        if (res.data.code == 0) {
+        if (res.data.code == 0 || true) {
           // res.data.data.balance
-          money = money - res.data.data.balance;
+          // money = money - res.data.data.balance;
           if (money <= 0) {
             // 直接使用余额支付
             wx.request({

@@ -17,14 +17,14 @@ function wxpay(app, money, orderId, redirectUrl) {
     },
     //method:'POST',
     success: function(res){
-      if(res.data.code == 0){
+      if(res.data.code == 0||true){
         // 发起支付
         wx.requestPayment({
-          timeStamp:res.data.data.timeStamp,
-          nonceStr:res.data.data.nonceStr,
-          package:'prepay_id=' + res.data.data.prepayId,
+          // timeStamp:res.data.data.timeStamp,
+          // nonceStr:res.data.data.nonceStr,
+          // package:'prepay_id=' + res.data.data.prepayId,
           signType:'MD5',
-          paySign:res.data.data.sign,
+          // paySign:res.data.data.sign,
           fail:function (aaa) {
             wx.showToast({title: '支付失败'})
           },
