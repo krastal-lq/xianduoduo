@@ -18,7 +18,6 @@ Page({
     curCoupon: null // 当前选择使用的优惠券
   },
   onShow: function () {
-    //console.log(this.data.orderType)
     var that = this;
     var shopList = [];
 
@@ -41,17 +40,10 @@ Page({
     that.setData({
       goodsList: shopList,
     });
-    // console.log("shopList")
-    // console.log(this.data.goodsList)
-
     that.initShippingAddress();
   },
 
   onLoad: function (e) {
-    // console.log('this.data.addressInfo')
-    // console.log(this.data.addressInfo)
-    // console.log(e)
-    // console.log(e.orderType)
     var that = this;
     if (app.globalData.iphone == true) {
       that.setData({
@@ -97,12 +89,14 @@ Page({
       remark: remark
     };
     var addr = this.data.addressInfo;
-    var address = addr.province + addr.city + addr.district + addr.address; 
+    var address = addr.province + addr.city + addr.district + addr.address;
     postData.address = address;
     postData.name = addr.linkMan;
     postData.telephone = addr.mobile;
     postData.totalPrice = this.data.allGoodsAndYunPrice;
+    postData.orderTime= new Date().getTime();
 
+    console.log(postData)
     wx.request({
       url: app.globalData.urls + '/order/create',
       method: 'POST',
@@ -111,13 +105,22 @@ Page({
       },
       data: postData, // 设置请求的 参数
       success: (res) => {
-
-      }
+        that.setData({
+          isNeedLogistics: res.data.data.isNeedLogistics,
+          allGoodsPrice: res.data.data.amountTotle,
+          allGoodsAndYunPrice: allGoodsAndYunPrice, //res.data.data.amountLogistics + res.data.data.amountTotle,
+          yunPrice: res.data.data.amountLogistics
+        });
+        that.getMyCoupons();
+        return;
+      },
     })
     wx.redirectTo({
       url: "/pages/success/success?order=" + 1 + "&money=" + this.data.allGoodsAndYunPrice + "&id=" + 1
     });
   },
+
+
   initShippingAddress: function () {
     var that = this;
     wx.request({

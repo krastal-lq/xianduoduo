@@ -39,8 +39,7 @@ swiper image {
 
 .post-title {
   font-size: 34rpx;
-  font-weight: 600;
-  color: #333;
+  color: rgb(15, 15, 15);
   margin-bottom: 10rpx;
   margin-left: 60rpx;
   margin-right: 60rpx;

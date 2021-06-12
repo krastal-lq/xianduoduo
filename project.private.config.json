@@ -53,6 +53,7 @@
           "pathName": "pages/new/new",
           "query": "",
           "scene": null
+<<<<<<< HEAD
         },
         {
           "name": "pages/news/news",
@@ -65,6 +66,8 @@
           "pathName": "pages/consumption2/consumption2",
           "query": "",
           "scene": null
+=======
+>>>>>>> master
         }
       ]
     }

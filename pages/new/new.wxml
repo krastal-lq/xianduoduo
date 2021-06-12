@@ -14,32 +14,32 @@
 
   <view class="post-container">
     <view class="post-auther-date">
-      <image class="post-auther" src="/images/pic/头像2.png"></image>
+      <image class="post-auther" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%A4%B4%E5%83%8F2.png"></image>
       <text class="post-date">中华人民共和国农业农村部</text>
     </view>
     <text class="post-title">关于《2021-2023年农机购置补贴实施指导意见》的通知</text>
-    <image class="post-image" src="/images/pic/扶贫助农4.png" bindtap="entershow"></image>
+    <image class="post-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E6%89%B6%E8%B4%AB%E5%8A%A9%E5%86%9C4.png" bindtap="entershow"></image>
     <text class="post-content">为指导各地规范实施农机购置补贴政策，充分发挥政策效益，推动农业机械化向全程全面高质高效转型升级、重要农产品有效供给和农民增收.....</text>
     <view class="post-like">
-      <image class="post-like-image" src="/images/pic/评论.png"></image>
+      <image class="post-like-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%AF%84%E8%AE%BA.png"></image>
       <text class="post-like-font">92</text>
-      <image class="post-like-image" src="/images/pic/点赞.png"></image>
+      <image class="post-like-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%82%B9%E8%B5%9E.png"></image>
       <text class="post-like-font">65</text>
     </view>
   </view>
 
   <view class="post-container">
     <view class="post-auther-date">
-      <image class="post-auther" src="/images/pic/头像2.png"></image>
+      <image class="post-auther" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%A4%B4%E5%83%8F2.png"></image>
       <text class="post-date">中华人民共和国农业农村部</text>
     </view>
     <text class="post-title">《国务院办公厅关于完善支持政策促进农民持续增收的若干意见》</text>
-    <image class="post-image" src="/images/pic/扶贫助农3.png" bindtap="entershow"></image>
+    <image class="post-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E6%89%B6%E8%B4%AB%E5%8A%A9%E5%86%9C3.png" bindtap="entershow"></image>
     <text class="post-content">小康不小康，关键看老乡。全面建成小康社会，关键在农民。增加农民收入是“三农”工作的中心任务，事关农民安居乐业和农村和谐稳定，事关巩固党在农村的执政基础，事关经济社会发展全局...</text>
     <view class="post-like">
-      <image class="post-like-image" src="/images/pic/评论.png"></image>
+      <image class="post-like-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%AF%84%E8%AE%BA.png"></image>
       <text class="post-like-font">92</text>
-      <image class="post-like-image" src="/images/pic/点赞.png"></image>
+      <image class="post-like-image" src="http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%82%B9%E8%B5%9E.png"></image>
       <text class="post-like-font">65</text>
     </view>
   </view>

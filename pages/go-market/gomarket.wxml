@@ -7,7 +7,7 @@
     <view class='body-view'>
       <!-- 头像 -->
       <view class='left-view'>
-        <image class='user-icon' src='/images/pic/头像.png'></image>
+        <image class='user-icon' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%A4%B4%E5%83%8F.png'></image>
       </view>
       <view class='right-view'>
         <!-- 昵称 -->
@@ -17,23 +17,22 @@
         </view>
         <!-- 内容 -->
         <view class='user-content-view'>
-          <text class='user-content'>【火爆上市海南贵妃芒果】又名红金龙，台湾省选育品种，1997年引入海南省。该品种长势强壮，早产、丰产，4-5年生嫁接树单株产量为20-30千克或者更高</text>
+          <text class='user-content'>"火爆上市海南贵妃芒果"又名红金龙，台湾省选育品种。该品种长势强壮，早产、丰产</text>
         </view>
         <!-- 图片 -->
         <view class='photo-view'>
           <view class='photo'>
-            <image class="photo1" src='/images/pic/芒果2.png'></image>
-            <image class="photo1" src='/images/pic/芒果.png'></image>
-            <image class="photo1" src='/images/pic/芒果3.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%8A%92%E6%9E%9C2.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%8A%92%E6%9E%9C3.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%8A%92%E6%9E%9C.png'></image>
           </view>
         </view>
         <!-- 时间、删除按钮、点赞评论按钮 -->
         <view class='TDD-view'>
-          <label>欢迎大家来海南品尝贵妃芒</label>
+          <label>1485人在看</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
-          <text>99+</text>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%82%B9%E8%B5%9E3.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%AF%84%E8%AE%BA3.png'></image>
         </view>
       </view>
     </view>
@@ -50,7 +49,7 @@
     <view class='body-view'>
       <!-- 头像 -->
       <view class='left-view'>
-        <image class='user-icon' src='/images/pic/头像.png'></image>
+        <image class='user-icon' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%A4%B4%E5%83%8F.png'></image>
       </view>
       <view class='right-view'>
         <!-- 昵称 -->
@@ -60,23 +59,22 @@
         </view>
         <!-- 内容 -->
         <view class='user-content-view'>
-          <text class='user-content'>【火爆上市陕西徐香猕猴桃】徐香猕猴桃是江苏省徐州市果园在1975年从北京植物园引入的美味猕猴桃。徐香猕猴桃适应性强，在沿海和黄淮平原的碱性条件下生长正常，开始结果早、品质优良、味甜浓香。</text>
+          <text class='user-content'>"火爆上市陕西徐香猕猴桃"徐香猕猴桃是江苏省徐州市果园在1975年从北京植物园引入的美味猕猴桃。徐香猕猴桃适应性强，在沿海和黄淮平原的碱性条件下生长正常，开始结果早、品质优良、味甜浓香。</text>
+          <text class='user-content'>"火爆上市陕西徐香猕猴桃"徐香猕猴桃是江苏省徐州市果园从北京植物园引入的美味猕猴桃。徐香猕猴味甜浓香。</text>
         </view>
         <!-- 图片 -->
         <view class='photo-view'>
           <view class='photo'>
-            <image class="photo1" src='/images/pic/猕猴桃1.png'></image>
-            <image class="photo1" src='/images/pic/猕猴桃2.png'></image>
-            <image class="photo1" src='/images/pic/猕猴桃3.png'></image>
-          </view>
-        </view>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%8C%95%E7%8C%B4%E6%A1%831.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%8C%95%E7%8C%B4%E6%A1%832.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%8C%95%E7%8C%B4%E6%A1%832.png'></image>
+          </view>        </view>
         <!-- 时间、删除按钮、点赞评论按钮 -->
         <view class='TDD-view'>
-          <label>欢迎大家来陕西品徐香猕猴桃</label>
+          <label>999人在看</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
-          <text>99+</text>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%82%B9%E8%B5%9E3.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%AF%84%E8%AE%BA3.png'></image>
         </view>
       </view>
     </view>
@@ -91,7 +89,7 @@
     <view class='body-view'>
       <!-- 头像 -->
       <view class='left-view'>
-        <image class='user-icon' src='/images/pic/头像.png'></image>
+        <image class='user-icon' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%A4%B4%E5%83%8F.png'></image>
       </view>
       <view class='right-view'>
         <!-- 昵称 -->
@@ -101,23 +99,22 @@
         </view>
         <!-- 内容 -->
         <view class='user-content-view'>
-          <text class='user-content'>【火爆上市贵州大土豆】刚刚从土地出土的新鲜大土豆，难道你还没用心动吗?买它，买它，买它</text>
+          <text class='user-content'>"火爆上市贵州大土豆"刚刚从土地出土的新鲜大土豆，难道你还没用心动吗?买它，买它，买它</text>
         </view>
         <!-- 图片 -->
         <view class='photo-view'>
           <view class='photo'>
-            <image class="photo1" src='/images/pic/土豆1.png'></image>
-            <image class="photo1" src='/images/pic/土豆2.png'></image>
-            <image class="photo1" src='/images/pic/土豆3.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%9C%9F%E8%B1%863.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%9C%9F%E8%B1%862.png'></image>
+            <image class="photo1" src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E5%9C%9F%E8%B1%861.png'></image>
           </view>
         </view>
         <!-- 时间、删除按钮、点赞评论按钮 -->
         <view class='TDD-view'>
-          <label>欢迎大家来贵州挖鲜土豆</label>
+          <label>1314人在看</label>
           <button bindtap='delete'></button>
-          <image bindtap='TouchDiscuss' src='/images/pic/点赞.png'></image>
-          <text>99+</text>
-          <image bindtap='TouchDiscuss' src='/images/pic/评论.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E7%82%B9%E8%B5%9E3.png'></image>
+          <image bindtap='TouchDiscuss' src='http://qubj0g32q.hd-bkt.clouddn.com/images/news/%E8%AF%84%E8%AE%BA3.png'></image>
         </view>
       </view>
     </view>

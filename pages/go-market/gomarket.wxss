@@ -21,7 +21,7 @@ page{
 }
 
 .left-view{
-  width: 150rpx;
+  width: 110rpx;
   /* background: rebeccapurple; */
 }
 
@@ -32,8 +32,8 @@ page{
 /* 头像 */
 .user-icon{
   /* display: flex; */
-  width:100rpx;
-  height: 100rpx;
+  width:90rpx;
+  height: 90rpx;
   margin-left: 20rpx;
   margin-top: 30rpx;
   margin-right: 20rpx;
@@ -42,17 +42,19 @@ page{
 /* 昵称 */
 .user-name{
   display: flex;
-  height: 50rpx;
-  line-height: 50rpx;
-  font-size: 18px;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 34rpx;
   /* color: rgb(88, 103, 138); */
-  color: black;
+  color: #000000;
   margin-top: 30rpx;
   margin-left: 10rpx;
 }
 .user-time{
   margin-left: 10rpx;
   font-size:10px;
+  height: 30rpx;
+  line-height: 30rpx;
   color:rgb(120, 120, 120)
 }
 
@@ -65,16 +67,37 @@ page{
   margin-left: -20px;
 }
 
-
+.TDD-view label{
+  font-size: 12px;
+  font-weight: 200;
+  color: #686666;
+}
+.TDD-view text{
+  font-size: 12px;
+  margin-left: 190px;
+  font-weight: 100;
+  margin-top: 6px;
+  position: absolute;
+  color:#bfbfbf;
+}
+.zhiti{
+  position: absolute;
+  margin-left: 270px;
+  font-size: 12px;
+  font-weight: 100;
+  margin-top: -27px;
+  color: #bfbfbf;
+}
 
 
 /* 内容 */
 .user-content{
   display: flex;
-  font-size: 13px;
-  line-height: 50rpx;
+  font-size: 28rpx;
+  line-height: 45rpx;
   margin-left: 10rpx;
   margin-right: 10px;
+  color: #302f2f;
 }
 
 /* 图片 */
@@ -128,7 +151,8 @@ page{
 .TDD-view image{
   width: 45rpx;
   height: 45rpx;
-  margin-right: 45rpx;
+  margin-right: 30rpx;
+  position: relative;
 }
 
 /* 点赞 */

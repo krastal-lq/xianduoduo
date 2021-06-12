@@ -337,7 +337,7 @@ Page({
   toPayOrder: function () {
     wx.showLoading();
     var that = this;
-    console.log(this.data.goodsList)
+    // console.log(this.data.goodsList)
     if (this.data.goodsList.noSelect) {
       wx.hideLoading();
       return;
@@ -358,8 +358,6 @@ Page({
     var isFail = false;
     var doneNumber = 0;
     var needDoneNUmber = shopList.length;
-    console.log('shopList')
-    console.log(shopList)
     for (let i = 0; i < shopList.length; i++) {
       if (isFail) {
         wx.hideLoading();
