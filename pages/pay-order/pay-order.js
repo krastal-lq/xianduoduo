@@ -93,31 +93,30 @@ Page({
     postData.address = address;
     postData.name = addr.linkMan;
     postData.telephone = addr.mobile;
+    postData.status = "待发货";
     postData.totalPrice = this.data.allGoodsAndYunPrice;
-    postData.orderTime= new Date().getTime();
-
-    console.log(postData)
+    postData.orderTime = this.nowTime();
+    postData.sequence = "dd" + new Date().getTime();
+    // console.log(postData)
     wx.request({
-      url: app.globalData.urls + '/order/create',
+      url: 'http://127.0.0.1:8080/xianDD/order/Create',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: postData, // 设置请求的 参数
       success: (res) => {
-        that.setData({
-          isNeedLogistics: res.data.data.isNeedLogistics,
-          allGoodsPrice: res.data.data.amountTotle,
-          allGoodsAndYunPrice: allGoodsAndYunPrice, //res.data.data.amountLogistics + res.data.data.amountTotle,
-          yunPrice: res.data.data.amountLogistics
+        if (e && "buyNow" != that.data.orderType) {
+          // 清空购物车数据
+          wx.removeStorageSync('shopCarInfo');
+        }
+        var addressInfo = JSON.stringify(this.data.addressInfo);
+        var orderId = res.data.msg
+        wx.redirectTo({
+          url: "/pages/success/success?order=" + postData.sequence + "&money=" + this.data.allGoodsAndYunPrice + "&addressInfo=" + addressInfo + "&id=" + orderId
         });
-        that.getMyCoupons();
-        return;
       },
     })
-    wx.redirectTo({
-      url: "/pages/success/success?order=" + 1 + "&money=" + this.data.allGoodsAndYunPrice + "&id=" + 1
-    });
   },
 
 
@@ -164,7 +163,7 @@ Page({
       if (i > 0) {
         goodsJsonStrTmp = ",";
       }
-      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"num":' + carShopBean.number + '"price":' + carShopBean.price + ',"totalPrice":' + (carShopBean.price * carShopBean.number + carShopBean.freight).toFixed(2) + '}';
+      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"num":' + carShopBean.number + ',"price":' + carShopBean.price + ',"totalPrice":' + (carShopBean.price * carShopBean.number + carShopBean.freight).toFixed(2) + '}';
       goodsJsonStr += goodsJsonStrTmp;
     }
     var allGoodsAndYunPrice = allGoodsPrice + yunPrice;
@@ -225,5 +224,15 @@ Page({
       youhuijine: this.data.coupons[selIndex].money,
       curCoupon: this.data.coupons[selIndex]
     });
+  },
+  nowTime: function () { //获取当前时间
+    let now = new Date();
+    let _month = (10 > (now.getMonth() + 1)) ? '0' + (now.getMonth() + 1) : now.getMonth() + 1;
+    let _day = (10 > now.getDate()) ? '0' + now.getDate() : now.getDate();
+    let _hour = (10 > now.getHours()) ? '0' + now.getHours() : now.getHours();
+    let _minute = (10 > now.getMinutes()) ? '0' + now.getMinutes() : now.getMinutes();
+    let _second = (10 > now.getSeconds()) ? '0' + now.getSeconds() : now.getSeconds();
+    return now.getFullYear() + '-' + _month + '-' + _day + ' ' + _hour + ':' + _minute + ':' + _second;
   }
+
 })

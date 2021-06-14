@@ -3,7 +3,8 @@
 var app = getApp()
 Page({
   data: {
-    addressList:[]
+    addressList:[],
+    addressInfo:[]
   },
 
   selectTap: function (e) {

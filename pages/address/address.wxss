@@ -45,7 +45,7 @@ page {
   height: 100%;
   padding: 50rpx 0 50rpx 58rpx;
   box-sizing: border-box;
-  background: url(https://cdn.it120.cc/images/weappshop/addr-edit.png) no-repeat 43rpx center;
+  /* background: url(https://cdn.it120.cc/images/weappshop/addr-edit.png) no-repeat 43rpx center; */
   background-size: 35rpx auto;
 }
 
@@ -58,7 +58,7 @@ page {
   height: 48px;
   font-size: 30rpx;
   line-height: 48px;
-  color: #b4282d;
+  color: #fddb08;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
 }
 

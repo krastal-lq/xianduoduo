@@ -5,12 +5,15 @@ Page({
   },
   onLoad: function (e) {
     var that = this;
+    console.log(e)
     if (app.globalData.iphone == true) { that.setData({ iphone: 'iphone' }) }
     if (e) {
+      var addresslist = JSON.parse(e.addressInfo)
       that.setData({
         money: e.money,
         order: e.order,
-        id: e.id
+        id: e.id,
+        addresslist : addresslist
       });
     }
     wx.request({
@@ -28,48 +31,51 @@ Page({
     })
   },
   toPayTap: function (e) {
-    var that = this;
-    var orderId = e.currentTarget.dataset.id;
-    var money = e.currentTarget.dataset.money;
-    wx.request({
-      url: app.globalData.urls + '/user/amount',
-      data: {
-        token: app.globalData.token
-      },
-      success: function (res) {
-        if (res.data.code == 0 || true) {
-          // res.data.data.balance
-          // money = money - res.data.data.balance;
-          if (money <= 0) {
-            // 直接使用余额支付
-            wx.request({
-              url: app.globalData.urls + '/order/pay',
-              method: 'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                token: app.globalData.token,
-                orderId: orderId
-              },
-              success: function (res2) {
-                wx.redirectTo({
-                  url: "/pages/order-list/order-list?currentType=1&share=1"
-                });
-              }
-            })
-          } else {
-            wxpay.wxpay(app, money, orderId, "/pages/order-list/order-list?currentType=1&share=1");
-          }
-        } else {
-          wx.showModal({
-            title: '错误',
-            content: '无法获取用户资金信息',
-            showCancel: false
-          })
-        }
-      }
-    })
+    wx.redirectTo({
+      url: "/pages/order-list/order-list?currentType=1&share=1"
+    });
+    // var that = this;
+    // var orderId = e.currentTarget.dataset.id;
+    // var money = e.currentTarget.dataset.money;
+    // wx.request({
+    //   url: app.globalData.urls + '/user/amount',
+    //   data: {
+    //     token: app.globalData.token
+    //   },
+    //   success: function (res) {
+    //     if (res.data.code == 0 || true) {
+    //       // res.data.data.balance
+    //       // money = money - res.data.data.balance;
+    //       if (money <= 0) {
+    //         // 直接使用余额支付
+    //         wx.request({
+    //           url: app.globalData.urls + '/order/pay',
+    //           method: 'POST',
+    //           header: {
+    //             'content-type': 'application/x-www-form-urlencoded'
+    //           },
+    //           data: {
+    //             token: app.globalData.token,
+    //             orderId: orderId
+    //           },
+    //           success: function (res2) {
+    //             wx.redirectTo({
+    //               url: "/pages/order-list/order-list?currentType=1&share=1"
+    //             });
+    //           }
+    //         })
+    //       } else {
+    //         wxpay.wxpay(app, money, orderId, "/pages/order-list/order-list?currentType=1&share=1");
+    //       }
+    //     } else {
+    //       wx.showModal({
+    //         title: '错误',
+    //         content: '无法获取用户资金信息',
+    //         showCancel: false
+    //       })
+    //     }
+    //   }
+    // })
   },
   closeOreder: function () {
     wx.showModal({

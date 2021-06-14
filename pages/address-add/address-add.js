@@ -125,6 +125,7 @@ Page({
 
         let pages = getCurrentPages();
         let prevPage = pages[pages.length - 2];
+        // console.log(prevPage)
         prevPage.setData({
           addressInfo: addressInfo
         })

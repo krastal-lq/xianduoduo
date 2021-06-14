@@ -45,7 +45,7 @@
 .home .menus .menu .title{
   font-size: 0.8rem;
   white-space: nowrap;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0,0.4);
   font-weight: bold;
 }
 

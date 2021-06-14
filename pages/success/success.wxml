@@ -12,8 +12,8 @@
   <view class="adds-box">
     <image src="../../images/profile_address.png" />
     <view class="adds-info">
-      <view class="name-tel">{{curAddressData.linkMan}} {{curAddressData.mobile}}</view>
-      <view class="addr-text">{{curAddressData.address}}</view>
+      <view class="name-tel">{{addresslist.linkMan}} {{addresslist.mobile}}</view>
+      <view class="addr-text">{{addresslist.province}}{{addresslist.city}}{{addresslist.district}}{{addresslist.address}}</view>
     </view>
   </view>
   <view class="pay-btn" bindtap="toPayTap" data-id="{{id}}" data-money="{{money}}">微信支付 ¥{{money}}</view>

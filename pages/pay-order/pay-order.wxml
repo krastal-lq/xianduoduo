@@ -7,7 +7,7 @@
         </view>
         <view class="show-address" hidden="{{!addressInfo}}" bindtap="selectAddress">
             <view class="name-tel">{{addressInfo.linkMan}}  {{addressInfo.mobile}}</view>
-            <view class="addr-text">{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.address}}</view>
+            <view class="addr-text">{{addressInfo.address}}</view>
         </view>
      </view>
      <view class="goods-list">
