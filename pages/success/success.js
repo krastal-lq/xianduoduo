@@ -1,19 +1,22 @@
 var wxpay = require('../../utils/pay.js');
 var app = getApp();
 Page({
-  data: {
-  },
+  data: {},
   onLoad: function (e) {
     var that = this;
     console.log(e)
-    if (app.globalData.iphone == true) { that.setData({ iphone: 'iphone' }) }
+    if (app.globalData.iphone == true) {
+      that.setData({
+        iphone: 'iphone'
+      })
+    }
     if (e) {
       var addresslist = JSON.parse(e.addressInfo)
       that.setData({
         money: e.money,
         order: e.order,
         id: e.id,
-        addresslist : addresslist
+        addresslist: addresslist
       });
     }
     wx.request({
@@ -31,9 +34,16 @@ Page({
     })
   },
   toPayTap: function (e) {
-    wx.redirectTo({
-      url: "/pages/order-list/order-list?currentType=1&share=1"
-    });
+    setTimeout(function () {
+      wx.hideLoading();
+      wx.redirectTo({
+        url: "/pages/order-list/order-list?currentType=1&share=1"
+      });
+    }, 1000);
+    wx.showLoading({
+      title: '微信支付中...',
+    })
+
     // var that = this;
     // var orderId = e.currentTarget.dataset.id;
     // var money = e.currentTarget.dataset.money;
