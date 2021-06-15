@@ -12,7 +12,7 @@
     <view class="text">还没有订单呢</view>
   </view>
   <view class="order-list" hidden="{{orderList ? false : true}}">
-    <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}" wx:if="">
+    <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}" >
       <view class="order-date" bindtap="orderDetail" data-id="{{item.id}}">
         <view class="date-box">下单时间：{{item.orderList[0].orderTime}}</view>
         <view class="status {{(item.status==-1 || item.status==4) ? '':'red'}}">{{item.orderList[0].status}}</view>
