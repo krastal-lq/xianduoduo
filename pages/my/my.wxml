@@ -72,7 +72,7 @@
       <button open-type="contact" session-from="weapp"></button>
     </view>
   </view>
-  <view class="userinfo-info">
+  <!-- <view class="userinfo-info">
     {{getInfo}}
-  </view>
+  </view> -->
 </view>

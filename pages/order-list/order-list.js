@@ -25,6 +25,7 @@ Page({
     this.setData({
       currentType: curType
     });
+    console.log(curType)
     this.onShow();
   },
   orderDetail: function (e) {
@@ -218,7 +219,7 @@ Page({
     wx.request({
       url:'http://127.0.0.1:8080/xianDD/orderdetail/Get',
       method:"Get",
-      //data: postData,
+      data: postData,
       success: (res) => {
         console.log(res)
         console.log(res.data.rows)

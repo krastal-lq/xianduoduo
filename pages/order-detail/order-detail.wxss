@@ -117,6 +117,7 @@ page {
 .wuliu-box .icon-box .icon {
   width: 40rpx;
   height: 40rpx;
+
 }
 
 .wuliu-box .arrow-right {
