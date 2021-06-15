@@ -38,7 +38,7 @@
       <view class="price-box">
         <view class="total-price">合计：¥ {{item.totalPrice}}</view>
         <view class="btn-box">
-          <view class="btn cancel-btn" hidden="{{item.orderList[0].status=='待付款'? false : true}}"
+          <view class="btn cancel-btn" hidden="{{item.orderList[0].status=='待发货'? false : true}}"
             bindtap="cancelOrderTap" data-id="{{item.id}}">取消订单</view>
           <view class="btn topay-btn" hidden="{{item.orderList[0].status=='待付款'? false: true}}" bindtap="toPayTap"
             data-id="{{item.id}}" data-money="{{item.amountReal}}">立即支付</view>

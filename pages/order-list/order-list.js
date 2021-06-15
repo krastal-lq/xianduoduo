@@ -9,7 +9,7 @@ Page({
   },
 
   statusTap: function (e) {
-    console.log(e)
+    // console.log(e)
     var obj = e;
     var count = 0;
     for (var key in obj) {
@@ -18,14 +18,14 @@ Page({
     if (count == 0) {
       var curType = 0;
     } else {
-      console.log('出现Cannot read property "dataset" of undefined;这样的错误是正常的，不用管！');
+      // console.log('出现Cannot read property "dataset" of undefined;这样的错误是正常的，不用管！');
       var curType = e.currentTarget.dataset.index;
     }
     this.data.currentType = curType
     this.setData({
       currentType: curType
     });
-    console.log(curType)
+    // console.log(curType)
     this.onShow();
   },
   orderDetail: function (e) {
@@ -211,10 +211,13 @@ Page({
     var postData = {
       token: app.globalData.token
     };
-    console.log(app.globalData.token)
+    // console.log(app.globalData.token)
+    // console.log(that.data.currentType)
+    postData.status = that.data.statusType[that.data.currentType];
+    postData.sort = '`order`.orderTime';
+    postData.order = 'desc';
+
     console.log(postData)
-    console.log(that.data.currentType)
-    postData.status = that.data.currentType;
     this.getOrderStatistics();
     wx.request({
       url:'http://127.0.0.1:8080/xianDD/orderdetail/Get',
@@ -222,7 +225,7 @@ Page({
       data: postData,
       success: (res) => {
         console.log(res)
-        console.log(res.data.rows)
+        // console.log(res.data.rows)
         wx.hideLoading();
         // if (res.data.code == 0) {
           that.setData({

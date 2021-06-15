@@ -115,13 +115,14 @@ Page({
       },
       success: function (res) {
         that.data.goodsDetail = res.data.rows[0];
-        // console.log(that.data.goodsDetail)
+        var imageList = res.data.rows[0].goodsimageList;
+        // that.parseContent(imageList);
         that.setData({
           goodsDetail: res.data.rows[0],
           selectSizePrice: res.data.rows[0].promotPrice,
           selectptPrice: res.data.rows[0].promotPrice
         });
-        // WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+        WxParse.wxParse('article', 'html', that.parseContent(imageList), that, 5);
       }
     });
     // wx.request({
@@ -165,6 +166,13 @@ Page({
     wx.reLaunch({
       url: "/pages/cart/cart"
     });
+  },
+  parseContent: function (e) {
+    var content = "<p>&nbsp;</p>";
+    for (var i = 0; i < e.length; i++) {
+      content += '<p><img src="'+e[i].url+'" /></p>'
+    }
+    return content;
   },
   toAddShopCar: function () {
     this.setData({

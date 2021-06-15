@@ -184,17 +184,24 @@
 .a-order .price-box .cancel-btn {
   border: 1rpx solid #ccc;
   position: absolute;
-  right: 216rpx;
+  right: 30rpx;
   top: 20rpx;
   color: #999;
 }
 
 .a-order .price-box .topay-btn {
   border: 1px solid #fbbd08;
+  background: rgb(255, 255, 255);
+  color: #fbbd08;
+}
+.topay-btn {
+  border: 1px solid #fbbd08;
+  background: rgb(255, 255, 255);
+  font-size: 25rpx;
   color: #fbbd08;
 }
 .confirm-btn {
-  background: #fff;
+  background: rgb(255, 255, 255);
   border: 1px solid #fbbd08;
 	float: right;
 }
