@@ -6,6 +6,7 @@ Page({
         yunPrice:"0.00"
     },
     onLoad:function(e){
+      console.log(e);
       var that = this;
       var orderId = e.id;
       if(!e.share){ 
@@ -22,23 +23,21 @@ Page({
       wx.showLoading();
       setTimeout(function () {
         wx.request({
-          url: app.globalData.urls + '/order/detail',
+          url: 'http://127.0.0.1:8080/xianDD/orderdetail/Get',
           data: {
             token: app.globalData.token,
             id: that.data.orderId
           },
           success: (res) => {
+            console.log(res)
             wx.hideLoading();
-            if (res.data.code != 0) {
-              wx.showModal({
-                title: '错误',
-                content: res.data.msg,
-                showCancel: false
-              })
-              return;
-            }
+              // wx.showModal({
+              //   title: '正确',
+              //   content: res.data.msg,
+              //   showCancel: false
+              // })
             that.setData({
-              orderDetail: res.data.data
+              orderDetail: res.data.rows
             });
           }
         })

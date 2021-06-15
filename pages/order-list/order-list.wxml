@@ -1,7 +1,8 @@
 <navigation id='Navigation' show-icon="{{true}}" title="订单列表" show-title="{{true}}" class=""></navigation>
 <view class="container">
   <view class="status-box">
-    <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+    <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}"
+      wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
       {{item}}
       <view class="{{tabClass[index]}}"></view>
     </view>
@@ -13,34 +14,42 @@
   <view class="order-list" hidden="{{orderList ? false : true}}">
     <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
       <view class="order-date" bindtap="orderDetail" data-id="{{item.id}}">
-        <view class="date-box">下单时间：{{item.dateAdd}}</view>
-        <view class="status {{(item.status==-1 || item.status==4) ? '':'red'}}">{{item.statusStr}}</view>
+        <view class="date-box">下单时间：{{item.orderList[0].orderTime}}</view>
+        <view class="status {{(item.status==-1 || item.status==4) ? '':'red'}}">{{item.orderList[0].status}}</view>
       </view>
       <view class="goods-info" bindtap="orderDetail" data-id="{{item.id}}">
         <view class="goods-des">
-          <view>订单号:{{item.orderNumber}} </view>
-          <view wx:if="{{item.remark && item.remark != ''}}">备注： {{item.remark}}</view>
+          <view>订单号:{{item.orderList[0].sequence}} </view>
+          <view>备注： {{item.orderList[0].remark}}</view>
         </view>
       </view>
       <view bindtap="orderDetail" data-id="{{item.id}}">
-        <scroll-view class="goods-img-container" scroll-x="true">
-          <view class="img-box" wx:for-items="{{goodsMap[item.id]}}" wx:key="{{index}}">
-            <image src="{{item.pic}}" class="goods-img"></image>
+        <view class="goods-img-container" >
+          <view class="img-box">
+            <image src="{{item.goodsList[0].goodsimageList[0].url}}" class="goods-img"></image>
           </view>
-        </scroll-view>
+          <view class="goods-title">
+            <text>{{item.goodsList[0].name}}   </text>
+            <text>  {{item.num}}   </text>
+            <text>{{item.goodsList[0].unit}}</text>
+        </view>
+        </view>
       </view>
       <view class="price-box">
-        <view class="total-price">合计：¥ {{item.amountReal}}</view>
-				<view class="btn-box">
-					<view class="btn cancel-btn" hidden="{{item.status==0? false : true}}" bindtap="cancelOrderTap" data-id="{{item.id}}">取消订单</view>
-					<view class="btn topay-btn" hidden="{{item.status==0? false: true}}" bindtap="toPayTap" data-id="{{item.id}}" data-money="{{item.amountReal}}">立即支付</view>
-					<view class="btn topay-btn" hidden="{{item.status==3? false: true}}" bindtap="orderDetail" data-id="{{item.id}}">去评价</view>
-					<form bindsubmit="toConfirmTap" report-submit="true" data-id="{{item.id}}">
-					  <view wx:if="{{item.status==2}}">
-					    <button class="btn topay-btn" formType="submit">确认收货</button>
-					  </view>
-					</form>
-				</view>
+        <view class="total-price">合计：¥ {{item.totalPrice}}</view>
+        <view class="btn-box">
+          <view class="btn cancel-btn" hidden="{{item.orderList[0].status=='待付款'? false : true}}"
+            bindtap="cancelOrderTap" data-id="{{item.id}}">取消订单</view>
+          <view class="btn topay-btn" hidden="{{item.orderList[0].status=='待付款'? false: true}}" bindtap="toPayTap"
+            data-id="{{item.id}}" data-money="{{item.amountReal}}">立即支付</view>
+          <view class="btn topay-btn" hidden="{{item.orderList[0].status=='待评价'? false: true}}" bindtap="orderDetail"
+            data-id="{{item.id}}">去评价</view>
+          <form bindsubmit="toConfirmTap" report-submit="true" data-id="{{item.id}}">
+            <view wx:if="{{item.orderList[0].status=='待收货'}}">
+              <button class="btn topay-btn" formType="submit">确认收货</button>
+            </view>
+          </form>
+        </view>
       </view>
     </view>
   </view>

@@ -5,10 +5,11 @@ Page({
     statusType: ["待付款", "待发货", "待收货", "待评价", "已完成"],
     currentType: 0,
     tabClass: ["", "", "", "", ""],
-		bodyHeight:null
+    bodyHeight:null,
   },
 
   statusTap: function (e) {
+    console.log(e)
     var obj = e;
     var count = 0;
     for (var key in obj) {
@@ -164,40 +165,43 @@ Page({
     })
   },
 	toConfirmTap:function(e){
-	  let that = this;
-	  let orderId = e.currentTarget.dataset.id;
-	  let formId = e.detail.formId;
-	  wx.showModal({
-	      title: '确认您已收到商品？',
-	      content: '',
-	      success: function(res) {
-	        if (res.confirm) {
-	          wx.showLoading();
-	          wx.request({
-	            url: app.globalData.urls + '/order/delivery',
-	            data: {
-	              token: app.globalData.token,
-	              orderId: orderId
-	            },
-	            success: (res) => {
-	              if (res.data.code == 0) {
-	                that.onShow();
+    wx.showToast({
+      title: '确认收货成功',
+    })
+	  // let that = this;
+	  // let orderId = e.currentTarget.dataset.id;
+	  // let formId = e.detail.formId;
+	  // wx.showModal({
+	  //     title: '确认您已收到商品？',
+	  //     content: '',
+	  //     success: function(res) {
+	  //       if (res.confirm) {
+	  //         wx.showLoading();
+	  //         wx.request({
+	  //           url: app.globalData.urls + '/order/delivery',
+	  //           data: {
+	  //             token: app.globalData.token,
+	  //             orderId: orderId
+	  //           },
+	            // success: (res) => {
+	            //   if (res.data.code == 0) {
+	                //that.onShow();
 	                // 模板消息，提醒用户进行评价
-	                let postJsonString = {};
-	                postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' }
-	                let keywords2 = '您已确认收货，期待您的再次光临！';
-	                if (app.globalData.order_reputation_score) {
-	                  keywords2 += '立即好评，系统赠送您' + app.globalData.order_reputation_score +'积分奖励。';
-	                }
-	                postJsonString.keyword2 = { value: keywords2, color: '#173177' }
-	                app.sendTempleMsgImmediately(app.siteInfo.assessorderkey , formId,
-	                  '/pages/order-detail/order-detail?id=' + orderId, JSON.stringify(postJsonString));
-	              }
-	            }
-	          })
-	        }
-	      }
-	  })
+	                // let postJsonString = {};
+	                // postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' }
+	                // let keywords2 = '您已确认收货，期待您的再次光临！';
+	                // if (app.globalData.order_reputation_score) {
+	                //   keywords2 += '立即好评，系统赠送您' + app.globalData.order_reputation_score +'积分奖励。';
+	                // }
+	              //   postJsonString.keyword2 = { value: keywords2, color: '#173177' }
+	              //   app.sendTempleMsgImmediately(app.siteInfo.assessorderkey , formId,
+	              //     '/pages/order-detail/order-detail?id=' + orderId, JSON.stringify(postJsonString));
+	              // }
+	            //}
+	  //         })
+	  //       }
+	  //     }
+	  // })
 	},
   onShow: function (e) {
     // 获取订单列表
@@ -206,27 +210,32 @@ Page({
     var postData = {
       token: app.globalData.token
     };
+    console.log(app.globalData.token)
+    console.log(postData)
+    console.log(that.data.currentType)
     postData.status = that.data.currentType;
     this.getOrderStatistics();
     wx.request({
-      url: app.siteInfo.url + app.siteInfo.subDomain + '/order/list',
-      data: postData,
+      url:'http://127.0.0.1:8080/xianDD/orderdetail/Get',
+      method:"Get",
+      //data: postData,
       success: (res) => {
-				console.log(res)
+        console.log(res)
+        console.log(res.data.rows)
         wx.hideLoading();
-        if (res.data.code == 0) {
+        // if (res.data.code == 0) {
           that.setData({
-            orderList: res.data.data.orderList,
-            logisticsMap: res.data.data.logisticsMap,
-            goodsMap: res.data.data.goodsMap
+            orderList: res.data.rows,
+            // logisticsMap: res.data.data.logisticsMap,
+            // goodsMap: res.data.data.goodsMap
           });
-        } else {
-          this.setData({
-            orderList: null,
-            logisticsMap: {},
-            goodsMap: {}
-          });
-        }
+        // } else {
+        //   this.setData({
+        //     orderList: null,
+        //     logisticsMap: {},
+        //     goodsMap: {}
+        //   });
+        // }
       }
     })
 		var winInfo = wx.getSystemInfo({
